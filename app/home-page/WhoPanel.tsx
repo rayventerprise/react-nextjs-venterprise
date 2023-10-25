@@ -13,7 +13,7 @@ export const WhoPanel = () =>
         I specialize in creating modern, user-friendly
         web & mobile experiences.
       </div>
-      <div className="space-x-6">
+      <div className="md:space-x-6">
         <Link href="/#projects">
           <button className="btn px-8 py-4 bg-primary text-white uppercase shadow-lg">
             View Work
