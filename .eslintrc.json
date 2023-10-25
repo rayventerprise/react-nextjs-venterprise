@@ -1,3 +1,12 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended"
+  ],
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "react/jsx-indent": ["error", 2],
+    /* Not wanting to import React in every file. */
+    "no-undef": "off"
+  }
 }
