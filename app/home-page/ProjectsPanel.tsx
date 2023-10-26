@@ -1,6 +1,9 @@
 import React from 'react'
 import Image from "next/image";
 import {ProjectCard} from "@/app/home-page/ProjectCard";
+// @ts-ignore
+import {GithubLogo} from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 export const ProjectsPanel = () => {
   return  (
     <div className="flex justify-center" style={{ minHeight: 1150 }} id="projects">
@@ -62,6 +65,16 @@ export const ProjectsPanel = () => {
                 className="rotate-[-12deg]"
             />
           </ProjectCard>
+          <div className="flex flex-col items-center w-full space-y-4">
+            <span className="text-lg">Want to see some of my code?</span>
+
+            <Link href="https://github.com/rayventerprise" target="_blank" className="hover:no-underline">
+              <button className="btn flex items-center space-x-4 border border-gray-600 px-8 py-4">
+                <GithubLogo width={32} height={32}/>
+                <span>GitHub Repositories</span>
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
