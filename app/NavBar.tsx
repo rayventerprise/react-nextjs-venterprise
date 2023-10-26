@@ -2,7 +2,7 @@
 import {useRouter} from 'next/navigation'
 import React, {useEffect, useState} from 'react'
 import {AnimatePresence, motion} from 'framer-motion'
-// @ts-ignore todo: update package to fix types
+// @ts-ignore
 import {List, X} from '@phosphor-icons/react/dist/ssr'
 import classNames from 'classnames'
 import Link from 'next/link'
