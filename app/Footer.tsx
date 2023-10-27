@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+// @ts-ignore
 import {GithubLogo} from "@phosphor-icons/react/dist/ssr";
 
 export const Footer = () => {
