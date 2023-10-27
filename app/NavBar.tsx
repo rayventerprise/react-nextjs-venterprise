@@ -3,7 +3,7 @@ import {useRouter} from 'next/navigation'
 import React, {useEffect, useState} from 'react'
 import {AnimatePresence, motion} from 'framer-motion'
 // @ts-ignore
-import {List, X} from '@phosphor-icons/react/dist/ssr'
+import {GithubLogo, List, X} from '@phosphor-icons/react/dist/ssr'
 import classNames from 'classnames'
 import Link from 'next/link'
 
@@ -76,6 +76,16 @@ export const NavBar = () => {
           <button className="btn nav-button" onClick={() => clickPopoverLink('/contact')}>
             CONTACT
           </button>
+
+          <div className="flex flex-col items-center py-4 space-y-4">
+            <div className="bg-gray-500 w-1/2 h-[1px]"/>
+            <div className="flex">
+              <Link href="https://github.com/rayventerprise" className="flex items-center space-x-2" target="_blank">
+                <GithubLogo width={32} height={32}/>
+                <span className="text-sm">Github</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </motion.div>) }
     </AnimatePresence>

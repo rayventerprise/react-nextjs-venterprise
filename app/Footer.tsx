@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import {GithubLogo} from "@phosphor-icons/react/dist/ssr";
 
 export const Footer = () => {
   return (
@@ -14,16 +15,25 @@ export const Footer = () => {
           © {(new Date()).getFullYear()}
         </span>
       </div>
-      <div className="space-x-3 md:space-x-12">
-        <Link href="/">
-          Home
-        </Link>
-        <Link href="/about">
-          About
-        </Link>
-        <Link href="/contact">
-          Contact
-        </Link>
+      <div className="space-y-3">
+        <div className="space-x-3 md:space-x-12">
+          <Link href="/">
+            Home
+          </Link>
+          <Link href="/about">
+            About
+          </Link>
+          <Link href="/contact">
+            Contact
+          </Link>
+        </div>
+        <div className="flex justify-end">
+          <Link href="https://github.com/rayventerprise" target="_blank">
+            <div className="bg-gray-100 rounded p-2">
+              <GithubLogo width={24} height={24}/>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   )
