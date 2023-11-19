@@ -20,9 +20,9 @@ export default function Page() {
             <div className="max-w-[500px]">
               The town square for drone hobbyists,
               users create personal profiles, participate in forums,
-              buy and sell parts from other hobbyists, manage their inventory,
-              handle offers from vendors, compare prices from various vendors,
-              and locate other hobbyists to flying with.
+              buy and sell from others, sync & manage their inventory,
+              use our vendor price compare tool,
+              and locate others to fly with.
             </div>
           </div>
 
