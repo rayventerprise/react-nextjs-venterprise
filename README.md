@@ -11,6 +11,7 @@ You may access this project at https://venterprise.io
 
 ## Todo
 - Wait until the phosphor-icons package has fixed Next.js types and remove @ts-ignore comments.
+- Remove ts-node workaround in tsconfig.json when Cypress fixes issue.
 
 ## Achievements
 ![readme-assets/lighthouse.png](readme-assets/lighthouse.png)
