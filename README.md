@@ -1,5 +1,11 @@
 ## Portfolio Website
-This project contains my portfolio website built with Next.js 13, React, TypeScript, and ESLint. Deployment is through Vercel.
+This project contains my portfolio website.
+
+Libraries: Next.js 13, React, TypeScript, ESLint
+
+CD (Deployment):  Vercel
+
+CI (Testing): GitHub Actions, Cypress E2E
 
 You may access this project at https://venterprise.io
 
