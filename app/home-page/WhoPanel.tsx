@@ -20,7 +20,7 @@ export const WhoPanel = () =>
           </button>
         </Link>
         <Link href="/contact">
-          <button className="btn px-8 py-4 bg-white border border-gray-100 text-black uppercase shadow-lg">
+          <button className="btn px-8 py-4 bg-white border border-gray-100 text-black uppercase shadow-lg" data-cy="contact-me">
             Contact Me
           </button>
         </Link>
