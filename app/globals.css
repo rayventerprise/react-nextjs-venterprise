@@ -49,3 +49,9 @@ body {
 a {
   @apply hover:underline transition-colors hover:text-primary duration-500
 }
+
+@media (prefers-color-scheme: dark) {
+  .MuiOutlinedInput-root {
+    @apply bg-white
+  }
+}

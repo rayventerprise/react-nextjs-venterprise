@@ -43,7 +43,7 @@ export const NavBar = () => {
       </div>
       <button
           aria-label="Menu"
-          className="btn shadow-md justify-center bg-white items-center flex px-4 py-2"
+          className="btn shadow-md justify-center dark:bg-primary light:bg-white items-center flex px-4 py-2"
           onClick={() => setPopoverOpen(!popoverOpen)}
       >
         <List size={32} />

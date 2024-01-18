@@ -6,7 +6,7 @@ import {GithubLogo} from "@phosphor-icons/react/dist/ssr";
 export const Footer = () => {
   return (
     <div className="w-full border-t border-gray-300 flex flex-col items-center md:flex-row py-8 justify-between content-container h-[115px] mt-16">
-      <div>
+      <div className="flex space-x-2 items-center md:items-start md:space-x-0 md:flex-col">
         <div className='header-font flex flex-col text-sm md:text-lg'>
           <Link href="/">
             RAYMOND VANDENBERG
@@ -16,8 +16,8 @@ export const Footer = () => {
           © {(new Date()).getFullYear()}
         </span>
       </div>
-      <div className="space-y-3">
-        <div className="space-x-3 md:space-x-12">
+      <div>
+        <div className="space-x-3 md:space-x-4">
           <Link href="/">
             Home
           </Link>
@@ -28,10 +28,10 @@ export const Footer = () => {
             Contact
           </Link>
         </div>
-        <div className="flex justify-end">
+        <div className="flex justify-center md:justify-end">
           <Link href="https://github.com/rayventerprise" target="_blank">
-            <div className="bg-gray-100 rounded p-2">
-              <GithubLogo width={24} height={24}/>
+            <div className="light:bg-gray-100 rounded p-2">
+              <GithubLogo width={20} height={20}/>
             </div>
           </Link>
         </div>
