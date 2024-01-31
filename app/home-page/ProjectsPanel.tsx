@@ -12,7 +12,7 @@ export const ProjectsPanel = () => {
           <h1 className="relative text-2xl header-font">FEATURED PROJECTS</h1>
         </div>
         <div className="w-full">
-          <ProjectCard gradientClass="from-green-800 to-green-600" url="/projects/pizzamico">
+          <ProjectCard gradientClass="from-green-800 to-green-600" url="/pizzamico">
             <div className="space-y-8">
               <div className="text-3xl font-bold uppercase header-font">
                 Pizzamico
@@ -38,7 +38,7 @@ export const ProjectsPanel = () => {
                   loading="eager"
               />
           </ProjectCard>
-          <ProjectCard  gradientClass="from-yellow-800 to-yellow-600" url="/projects/fpvexchange">
+          <ProjectCard  gradientClass="from-yellow-800 to-yellow-600" url="/fpvexchange">
             <div className="space-y-8">
               <div className="text-3xl font-bold uppercase header-font">
                 FPVExchange

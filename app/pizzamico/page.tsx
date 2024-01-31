@@ -1,5 +1,5 @@
 import React from 'react'
-import {PhoneAppPreview} from '../../PhoneAppPreview'
+import {PhoneAppPreview} from '../PhoneAppPreview'
 import {TechStack} from '@/app/TechStack'
 import {TechBlock} from '@/app/TechBlock'
 // @ts-ignore
@@ -82,7 +82,7 @@ export default function Page() {
               <ArrowBendUpLeft className="text-primary" size={84}/>
             </div>
           </Link>
-          <Link href="/projects/fpvexchange">
+          <Link href="/fpvexchange">
             <div className="space-y-3 text-right cursor-pointer">
               <div className="text-gray-700">
                 NEXT

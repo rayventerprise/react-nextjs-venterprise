@@ -1,5 +1,5 @@
 import React from 'react'
-import {PhoneAppPreview} from '../../PhoneAppPreview'
+import {PhoneAppPreview} from '../PhoneAppPreview'
 import {TechStack} from '@/app/TechStack'
 import {TechBlock} from '@/app/TechBlock'
 // @ts-ignore
@@ -70,7 +70,7 @@ export default function Page() {
         </div>
 
         <div className="flex justify-between py-6">
-          <Link href="/projects/pizzamico">
+          <Link href="/pizzamico">
             <div className="space-y-3 cursor-pointer">
               <div className="text-gray-700">
                 PREVIOUS
