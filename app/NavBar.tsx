@@ -3,7 +3,7 @@ import {useRouter} from 'next/navigation'
 import React, {useEffect, useState} from 'react'
 import {AnimatePresence, motion} from 'framer-motion'
 // @ts-ignore
-import {GithubLogo, List, X} from '@phosphor-icons/react/dist/ssr'
+import {List, X} from '@phosphor-icons/react/dist/ssr'
 import classNames from 'classnames'
 import Link from 'next/link'
 
@@ -13,7 +13,11 @@ export const NavBar = () => {
   const [popoverOpen, setPopoverOpen] = useState(false)
 
   const clickPopoverLink = (url: string) => {
-    router.push(url)
+    if ( url.startsWith('http') ) {
+      window.open(url, '_blank')
+    } else {
+      router.push(url)
+    }
     setPopoverOpen(false)
   }
 
@@ -41,13 +45,15 @@ export const NavBar = () => {
           RAYMOND VANDENBERG
         </Link>
       </div>
-      <button
-          aria-label="Menu"
-          className="btn shadow-md justify-center dark:bg-primary light:bg-white items-center flex px-4 py-2"
-          onClick={() => setPopoverOpen(!popoverOpen)}
-      >
-        <List size={32} />
-      </button>
+      <div className="flex justify-center items-center space-x-2">
+        <button
+            aria-label="Menu"
+            className="btn shadow-md justify-center dark:bg-primary light:bg-white items-center flex px-4 py-2"
+            onClick={() => setPopoverOpen(!popoverOpen)}
+        >
+          <List size={32} />
+        </button>
+      </div>
     </div>
 
     <AnimatePresence>
@@ -60,14 +66,15 @@ export const NavBar = () => {
     >
         <div className="content-container h-full w-full py-6">
           <div className="flex text-xl items-center justify-end">
-            <button className="text-xl p-4 hover:bg-gray-300 hover:bg-opacity-10 transition duration-500 rounded" onClick={() => setPopoverOpen(false)}>
+            <button className="text-xl p-4 hover:bg-gray-300 hover:bg-opacity-10 transition duration-500 rounded"
+                    onClick={() => setPopoverOpen(false)}>
               <X size={32}/>
             </button>
           </div>
-          <button className="btn nav-button"  onClick={() => clickPopoverLink('/')}>
+          <button className="btn nav-button" onClick={() => clickPopoverLink('/')}>
             HOME
           </button>
-          <button className="btn nav-button"  onClick={() => clickPopoverLink('/about')}>
+          <button className="btn nav-button" onClick={() => clickPopoverLink('/about')}>
             ABOUT
           </button>
           <button className="btn nav-button" onClick={() => clickPopoverLink('/#projects')}>
@@ -76,18 +83,14 @@ export const NavBar = () => {
           <button className="btn nav-button" onClick={() => clickPopoverLink('/contact')}>
             CONTACT
           </button>
-
-          <div className="flex flex-col items-center py-4 space-y-4">
-            <div className="bg-gray-500 w-1/2 h-[1px]"/>
-            <div className="flex">
-              <Link href="https://github.com/rayventerprise" className="flex items-center space-x-2" target="_blank">
-                <GithubLogo width={32} height={32}/>
-                <span className="text-sm">Github</span>
-              </Link>
-            </div>
-          </div>
+          <button className="btn nav-button" onClick={() => clickPopoverLink('https://github.com/rayventerprise')}>
+            GITHUB
+          </button>
+          <button className="btn nav-button" onClick={() => clickPopoverLink('https://medium.com/@rayventerprise')}>
+            ARTICLES
+          </button>
         </div>
-      </motion.div>) }
+      </motion.div>)}
     </AnimatePresence>
   </>)
 }

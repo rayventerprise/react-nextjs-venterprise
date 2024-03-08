@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 // @ts-ignore
-import {GithubLogo} from "@phosphor-icons/react/dist/ssr";
+import {GithubLogo, MediumLogo} from "@phosphor-icons/react/dist/ssr";
 
 export const Footer = () => {
   return (
@@ -32,6 +32,11 @@ export const Footer = () => {
           <Link href="https://github.com/rayventerprise" target="_blank">
             <div className="light:bg-gray-100 rounded p-2">
               <GithubLogo width={20} height={20}/>
+            </div>
+          </Link>
+          <Link href="https://medium.com/@rayventerprise" target="_blank">
+            <div className="light:bg-gray-100 rounded p-2">
+              <MediumLogo width={20} height={20}/>
             </div>
           </Link>
         </div>

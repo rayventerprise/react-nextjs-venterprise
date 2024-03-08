@@ -2,7 +2,7 @@ import React from 'react'
 import Image from "next/image";
 import {ProjectCard} from "@/app/home-page/ProjectCard";
 // @ts-ignore
-import {GithubLogo} from "@phosphor-icons/react/dist/ssr";
+import {GithubLogo, MediumLogo} from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 export const ProjectsPanel = () => {
   return  (
@@ -30,15 +30,15 @@ export const ProjectsPanel = () => {
             </div>
 
             <Image
-                  src="/images/projects/pizzamico/iphone-home.png"
-                  alt="showcase-1"
-                  className="md:mt-32"
-                  width={250}
-                  height={470}
-                  loading="eager"
-              />
+                src="/images/projects/pizzamico/iphone-home.png"
+                alt="showcase-1"
+                className="md:mt-32"
+                width={250}
+                height={470}
+                loading="eager"
+            />
           </ProjectCard>
-          <ProjectCard  gradientClass="from-yellow-800 to-yellow-600" url="/fpvexchange">
+          <ProjectCard gradientClass="from-yellow-800 to-yellow-600" url="/fpvexchange">
             <div className="space-y-8">
               <div className="text-3xl font-bold uppercase header-font">
                 FPVExchange
@@ -65,15 +65,27 @@ export const ProjectsPanel = () => {
                 className="rotate-[-12deg]"
             />
           </ProjectCard>
-          <div className="flex flex-col items-center w-full space-y-4">
-            <span className="text-lg">Want to see some of my code?</span>
+          <div className="grid grid-cols-1 space-y-8 md:space-y-0 md:grid-cols-2">
+            <div className="flex flex-col items-center w-full space-y-4">
+              <span className="text-lg">Want to see some of my code?</span>
 
-            <Link href="https://github.com/rayventerprise" target="_blank" className="hover:no-underline">
-              <button className="btn flex items-center space-x-4 border border-gray-600 px-8 py-4">
-                <GithubLogo width={32} height={32}/>
-                <span>GitHub Repositories</span>
-              </button>
-            </Link>
+              <Link href="https://github.com/rayventerprise" target="_blank" className="hover:no-underline">
+                <button className="btn flex items-center space-x-4 border border-gray-600 px-8 py-4">
+                  <GithubLogo width={32} height={32}/>
+                  <span>GitHub Repositories</span>
+                </button>
+              </Link>
+            </div>
+            <div className="flex flex-col items-center w-full space-y-4">
+              <span className="text-lg">Want to see some of my articles?</span>
+
+              <Link href="https://medium.com/@rayventerprise" target="_blank" className="hover:no-underline">
+                <button className="btn flex items-center space-x-4 border border-gray-600 px-8 py-4">
+                  <MediumLogo width={32} height={32}/>
+                  <span>Medium Articles</span>
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
