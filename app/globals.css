@@ -7,11 +7,17 @@
   --background-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 0, 0, 0;
+}
+
+.dark .MuiInputBase-root, .dark .MuiTextarea-root {
+    @apply bg-gray-800 text-white
+}
+
+.dark .MuiInputLabel-root {
+  @apply text-gray-500;
 }
 
 body {

@@ -6,6 +6,7 @@ import {AnimatePresence, motion} from 'framer-motion'
 import {List, X} from '@phosphor-icons/react/dist/ssr'
 import classNames from 'classnames'
 import Link from 'next/link'
+import {Lightbulb, Moon, Sun, SunDim} from "phosphor-react";
 
 export const NavBar = () => {
   const router = useRouter()
@@ -36,16 +37,31 @@ export const NavBar = () => {
     }
   }, [])
 
+  const [darkMode, setDarkMode] = useState(false)
+
+  const toggleColorScheme = () => {
+    if (   document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
+    }
+
+    setDarkMode(document.documentElement.classList.contains('dark'))
+  }
+
   return (<>
     <div
-      className={classNames('w-full flex py-4 md:py-16 z-20 justify-between app-header items-end content-container sticky top-0')}
+      className={classNames('w-full flex py-4 md:py-16 z-20 justify-between app-header items-center content-container sticky top-0')}
     >
-      <div className='header-font text-lg'>
+      <div className='header-font text-xl'>
         <Link href="/" className={classNames('transition-opacity duration-500', { 'opacity-0': scrolling })}>
           RAYMOND VANDENBERG
         </Link>
       </div>
-      <div className="flex justify-center items-center space-x-2">
+      <div className="flex justify-center items-center space-x-4">
+        <button onClick={toggleColorScheme} className="btn shadow-md px-4 py-2">
+          {darkMode ? <Lightbulb size={32}/> : <SunDim size={32}/>}
+        </button>
         <button
             aria-label="Menu"
             className="btn shadow-md justify-center dark:bg-primary light:bg-white items-center flex px-4 py-2"

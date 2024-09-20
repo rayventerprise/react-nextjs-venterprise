@@ -1,7 +1,6 @@
 'use client'
 import React, {useState} from "react";
 import {TextField} from "@mui/material";
-import {Textarea} from "@mui/joy";
 
 export const ContactForm = () => {
     const [responseMsg, setResponseMsg] = useState('')
@@ -27,17 +26,15 @@ export const ContactForm = () => {
     }
 
     return  <form onSubmit={submitContactForm}>
-      <div className="flex flex-col md:flex-row justify-between space-y-6 md:space-y-0">
+      <div className="flex flex-col md:flex-row space-y-6 md:space-y-0">
         <div className="flex flex-col flex-shrink-0 w-[400px] space-y-6">
           <TextField required label="Name" name="name"/>
           <TextField required label="Email" name="email" type="email"/>
           <TextField required label="Company" name="company"/>
-        </div>
-        <div className="w-[400px] md:w-full h-[150px] md:pl-12">
-          <Textarea required className="h-full" name="description" placeholder="Description"/>
+          <TextField required label="Notes" name="notes" placeholder="Notes"/>
         </div>
       </div>
-      <div className="flex justify-center h-[150px] items-center">
+      <div className="flex h-[150px] items-center">
         <button type="submit" className="btn bg-primary uppercase text-white font-bold px-11 py-5">
           Send It!
         </button>
