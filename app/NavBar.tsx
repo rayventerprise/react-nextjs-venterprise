@@ -6,7 +6,7 @@ import {AnimatePresence, motion} from 'framer-motion'
 import {List, X} from '@phosphor-icons/react/dist/ssr'
 import classNames from 'classnames'
 import Link from 'next/link'
-import {Lightbulb, Moon, Sun, SunDim} from "phosphor-react";
+import {Lightbulb, SunDim} from "phosphor-react";
 
 export const NavBar = () => {
   const router = useRouter()

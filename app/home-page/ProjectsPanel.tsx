@@ -4,6 +4,7 @@ import {ProjectCard} from "@/app/home-page/ProjectCard";
 // @ts-ignore
 import {GithubLogo, MediumLogo} from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
+
 export const ProjectsPanel = () => {
   return  (
     <div className="flex justify-center" style={{ minHeight: 1150 }} id="projects">

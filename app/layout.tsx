@@ -5,7 +5,7 @@ import {NavBar} from "@/app/NavBar";
 import classNames from "classnames";
 import {Footer} from "@/app/Footer";
 import React from "react";
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import {AppRouterCacheProvider} from '@mui/material-nextjs/v14-appRouter';
 import theme from "@/app/theme";
 import {ThemeProvider} from "@mui/material";
 

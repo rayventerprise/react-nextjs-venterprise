@@ -19,7 +19,7 @@
     "@phosphor-icons/react": "^2.0.13",
     "classnames": "^2.3.2",
     "framer-motion": "^10.16.4",
-    "next": "13.5.6",
+    "next": "14",
     "phosphor-react": "^1.4.1",
     "react": "^18",
     "react-dom": "^18",

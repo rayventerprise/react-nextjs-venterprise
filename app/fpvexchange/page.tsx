@@ -7,6 +7,7 @@ import {AppleLogo, ArrowBendUpLeft, ArrowBendUpRight, HardDrives, Users} from "@
 import Link from "next/link";
 import {Metadata} from "next";
 import Image from "next/image";
+
 export const metadata: Metadata = {
   title: 'FPVExchange'
 }
