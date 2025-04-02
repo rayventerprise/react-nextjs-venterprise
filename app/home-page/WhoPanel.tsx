@@ -9,7 +9,7 @@ export const WhoPanel = () =>
         Hey I'm <b className="header-font">Ray</b>.
       </div>
       <div className="text-xl text-center">
-        I am a full stack engineer and startup enthusiast.
+        I am a full stack engineer, engineering manager, and startup enthusiast.
         I specialize in creating modern, user-friendly
         web & mobile experiences.
       </div>

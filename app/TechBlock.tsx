@@ -7,7 +7,7 @@ interface TechBlockProps {
 }
 
 export const TechBlock: React.FC<TechBlockProps> = ({ name, children, icon }) => {
-  return (
+  return (<div className="flex flex-col md:items-center">
     <div className="space-y-2 px-2">
       <div className="flex items-center space-x-2">
         <div className="flex justify-center flex-shrink-0 items-center rounded-full text-primary">
@@ -19,5 +19,5 @@ export const TechBlock: React.FC<TechBlockProps> = ({ name, children, icon }) =>
         {children}
       </div>
     </div>
-  )
+  </div>)
 }

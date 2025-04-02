@@ -65,7 +65,7 @@ export default function Page() {
           </TechBlock>
           <TechBlock name="Roles" icon={<Users size={24}/>}>
             <TechStack  label="Full Stack Developer"/>
-            <TechStack label="Team Lead"/>
+            <TechStack label="Engineering Manager"/>
           </TechBlock>
         </div>
 
