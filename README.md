@@ -75,10 +75,9 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 <div align="center">
-  <p>Made with ❤️ by <strong>Venterprise</strong></p>
+  <p>Made with ❤️ by <strong>Ray</strong></p>
   <p>
     <a href="https://venterprise.io">🌐 Website</a> •
-    <a href="mailto:contact@venterprise.io">📧 Contact</a> •
-    <a href="https://github.com/yourusername">🐙 GitHub</a>
+    <a href="mailto:ray@venterprise.io">📧 Contact</a> •
   </p>
 </div>
