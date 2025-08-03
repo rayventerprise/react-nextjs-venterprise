@@ -1,5 +1,7 @@
 # 🚀 Portfolio Website
 
+![Cypress Tests](https://github.com/rayventerprise/react-nextjs-venterprise/actions/workflows/main.yml/badge.svg)
+
 > **Live Demo:** [https://venterprise.io](https://venterprise.io)
 
 A modern, responsive portfolio website built with cutting-edge technologies and best practices.
