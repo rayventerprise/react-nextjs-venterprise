@@ -71,13 +71,3 @@ npm run build
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
-
----
-
-<div align="center">
-  <p>Made with ❤️ by <strong>Ray</strong></p>
-  <p>
-    <a href="https://venterprise.io">🌐 Website</a> •
-    <a href="mailto:ray@venterprise.io">📧 Contact</a> •
-  </p>
-</div>
