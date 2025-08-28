@@ -42,7 +42,7 @@ export default function Page() {
           <AnimateDiv className="bg-gray-100 rounded box-border overflow-hidden p-3 max-h-[300px]">
             <div className="w-full h-full overflow-hidden">
               <Image
-                src="/images/projects/amazon/workspace-view.png"
+                src="/images/projects/amazon/placeholder.jpg"
                 alt="showcase amazon workspace"
                 className="w-full"
                 width={600}
@@ -76,7 +76,7 @@ export default function Page() {
         <div className="order-1 lg:order-2">
           <AnimateDiv className="bg-gray-100 rounded p-3">
             <Image
-                    src="/images/projects/amazon/workspace-vscode.png"
+                    src="/images/projects/amazon/placeholder.jpg"
                     alt="showcase amazon workspace vscode"
                     width={600}
                     height={120}
