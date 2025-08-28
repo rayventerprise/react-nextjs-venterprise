@@ -38,18 +38,16 @@ export default function Page() {
         </div>
       </div>
       <div className="grid lg:grid-cols-2 pt-16">
-        <div>
-          <AnimateDiv className="bg-gray-100 rounded box-border overflow-hidden p-3 max-h-[300px]">
-            <div className="w-full h-full overflow-hidden">
-              <Image
-                src="/images/projects/amazon/placeholder.jpg"
+        <div className="flex justify-center">
+          <AnimateDiv className="bg-gray-100 rounded box-border overflow-hidden p-3">
+            <Image
+                src="/images/projects/amazon/placeholder-400.png"
                 alt="showcase amazon workspace"
                 className="w-full"
-                width={600}
-                height={300}
+                width={400}
+                height={400}
                 loading="eager"
             />
-            </div>
           </AnimateDiv>
         </div>
         <div>
@@ -73,13 +71,13 @@ export default function Page() {
             I also did backend work, helping to design and implement the API that powered the application.
           </div>
         </div>
-        <div className="order-1 lg:order-2">
+        <div className="order-1 lg:order-2 flex justify-center">
           <AnimateDiv className="bg-gray-100 rounded p-3">
             <Image
-                    src="/images/projects/amazon/placeholder.jpg"
+                    src="/images/projects/amazon/placeholder-400.png"
                     alt="showcase amazon workspace vscode"
-                    width={600}
-                    height={120}
+                    width={400}
+                    height={400}
                     loading="eager"
                 />
           </AnimateDiv>
