@@ -47,7 +47,7 @@ My modern, responsive portfolio website built with cutting-edge technologies and
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/rayventerprise/react-nextjs-venterprise.git
 
 # Install dependencies
 npm install
