@@ -1,7 +1,7 @@
 import React from 'react'
 import {TechStack} from './TechStack'
 // @ts-ignore
-import {Checks, Database, DeviceMobile, Cloud, HardDrives, PaintBrush} from '@phosphor-icons/react/dist/ssr'
+import {Checks, Cloud, Database, DeviceMobile, HardDrives, PaintBrush} from '@phosphor-icons/react/dist/ssr'
 import {TechBlock} from './TechBlock'
 
 export const TechBreakdown = () => {

@@ -7,63 +7,65 @@ import Link from "next/link";
 
 export const ProjectsPanel = () => {
   return  (
-    <div className="flex justify-center" style={{ minHeight: 1150 }} id="projects">
-      <div className="relative flex flex-col items-center justify-center w-[800px]">
+    <div className="flex justify-center" id="projects">
+      <div className="w-[800px]">
         <div className="w-full py-6">
-          <h1 className="relative text-2xl header-font">FEATURED PROJECTS</h1>
+          <h1 className="text-2xl header-font">FEATURED PROJECTS</h1>
         </div>
         <div className="w-full">
+          <ProjectCard gradientClass="from-yellow-800 to-yellow-600" url="/amazon">
+            <div className="space-y-8">
+              <div className="text-3xl font-bold uppercase header-font">
+                Amazon
+              </div>
+              <div className="text-lg w-[300px]">
+                An internal workspace compute platform for Amazon economists to run AI/ML workloads.
+              </div>
+              <div className="hidden md:flex w-[250px] flex-wrap">
+                <div className="stack-badge">React</div>
+                <div className="stack-badge">Python</div>
+                <div className="stack-badge">Java</div>
+                <div className="stack-badge">Kubernetes</div>
+                <div className="stack-badge">CI/CD Pipelines</div>
+                <div className="stack-badge">AWS CDK (IaC)</div>
+              </div>
+            </div>
+
+            <div className="bg-gray-100 rounded-lg p-4 rotate-[12deg]">
+              <Image
+                      src="/images/projects/amazon/amazon.png"
+                      alt="showcase amazon project"
+                      width={200}
+                      height={120}
+                      loading="eager"
+                  />
+            </div>
+          </ProjectCard>
           <ProjectCard gradientClass="from-green-800 to-green-600" url="/pizzamico">
             <div className="space-y-8">
               <div className="text-3xl font-bold uppercase header-font">
                 Pizzamico
               </div>
               <div className="text-lg w-[250px]">
-                Online ordering platform for restaurants.
+                A branded online ordering platform for restaurants.
               </div>
               <div className="w-[250px] flex-wrap hidden md:flex">
-                <div className="stack-badge">Laravel</div>
                 <div className="stack-badge">React</div>
+                <div className="stack-badge">Python</div>
                 <div className="stack-badge">NextJS</div>
+                <div className="stack-badge">Laravel</div>
                 <div className="stack-badge">Ionic</div>
                 <div className="stack-badge">NodeJS</div>
               </div>
             </div>
 
             <Image
-                src="/images/projects/pizzamico/iphone-home.png"
+                src="/images/projects/pizzamico/iphone-menu.png"
                 alt="showcase-1"
                 className="md:mt-32"
                 width={250}
                 height={470}
                 loading="eager"
-            />
-          </ProjectCard>
-          <ProjectCard gradientClass="from-yellow-800 to-yellow-600" url="/fpvexchange">
-            <div className="space-y-8">
-              <div className="text-3xl font-bold uppercase header-font">
-                FPVExchange
-              </div>
-              <div className="text-lg w-[250px]">
-                Social platform for drones with trading.
-              </div>
-              <div className="hidden md:flex w-[250px] flex-wrap">
-                <div className="stack-badge">React</div>
-                <div className="stack-badge">NextJS</div>
-                <div className="stack-badge">GraphQL</div>
-                <div className="stack-badge">DynamoDB</div>
-                <div className="stack-badge">ElasticSearch</div>
-                <div className="stack-badge">AWS Amplify</div>
-              </div>
-            </div>
-
-            <Image
-                src="/images/projects/fpv/iphone.png"
-                alt="showcase fpv project"
-                width={220}
-                height={430}
-                loading="eager"
-                className="rotate-[-12deg]"
             />
           </ProjectCard>
           <div className="grid grid-cols-1 space-y-8 md:space-y-0 md:grid-cols-2">

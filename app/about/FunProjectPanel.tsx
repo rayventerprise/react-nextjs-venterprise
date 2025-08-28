@@ -8,7 +8,7 @@ export const FunProjectPanel = () => {
         <div>Find out if I can help.</div>
         <Link href="/contact">
           <button className="btn bg-primary text-white px-10 py-4 uppercase font-bold">
-            Let's Talk
+            <span>Let's Talk</span>
           </button>
         </Link>
       </div>

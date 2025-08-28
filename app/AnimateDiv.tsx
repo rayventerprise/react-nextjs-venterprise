@@ -21,7 +21,7 @@ export const AnimateDiv: React.FC<Props> = (props) => {
   return (
     <div
       ref={ref}
-      className={classNames(className, 'transition-all duration-1000', { [inViewClass]: inView, [outViewClass]: !inView })}
+      className={classNames(className, 'transition-all duration-500', { [inViewClass]: inView, [outViewClass]: !inView })}
     >
       {children}
     </div>

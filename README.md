@@ -1,28 +1,20 @@
-# 🚀 Portfolio Website
+# ✨ Portfolio Website
 
 ![Cypress Tests](https://github.com/rayventerprise/react-nextjs-venterprise/actions/workflows/main.yml/badge.svg)
 
 > **Live Demo:** [https://venterprise.io](https://venterprise.io)
 
-A modern, responsive portfolio website built with cutting-edge technologies and best practices.
-
-## ✨ Features
-
-- 🎨 **Modern Design** - Clean, responsive UI with beautiful animations
-- ⚡ **Performance Optimized** - Built with Next.js 13 for optimal speed
-- 🔒 **Type Safe** - Full TypeScript implementation
-- 🧪 **Tested** - Comprehensive E2E testing with Cypress
-- 🚀 **Deployed** - Automated deployment via Vercel
+My modern, responsive portfolio website built with cutting-edge technologies and best practices.
 
 ## 🛠️ Tech Stack
 
-| Category | Technology |
-|----------|------------|
-| **Framework** | ![Next.js](https://img.shields.io/badge/Next.js-13-black?style=for-the-badge&logo=next.js) |
+| Category | Technology                                                                                                        |
+|----------|-------------------------------------------------------------------------------------------------------------------|
+| **Framework** | ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)                        |
 | **Language** | ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) |
-| **UI Library** | ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) |
-| **Icons** | ![Phosphor Icons](https://img.shields.io/badge/Phosphor_Icons-000000?style=for-the-badge) |
-| **Linting** | ![ESLint](https://img.shields.io/badge/ESLint-4A3263?style=for-the-badge&logo=eslint&logoColor=white) |
+| **UI Library** | ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)               |
+| **Icons** | ![Phosphor Icons](https://img.shields.io/badge/Phosphor_Icons-000000?style=for-the-badge)                         |
+| **Linting** | ![ESLint](https://img.shields.io/badge/ESLint-4A3263?style=for-the-badge&logo=eslint&logoColor=white)             |
 
 ## 🚀 Deployment & CI/CD
 
@@ -51,7 +43,7 @@ A modern, responsive portfolio website built with cutting-edge technologies and 
 - [x] **E2E Testing** - Cypress test suite
 - [x] **Automated Deployment** - Vercel integration
 
-## 🚀 Quick Start
+## 🏁 Quick Start
 
 ```bash
 # Clone the repository

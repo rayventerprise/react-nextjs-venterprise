@@ -36,7 +36,7 @@ export const ContactForm = () => {
       </div>
       <div className="flex h-[150px] items-center">
         <button type="submit" className="btn bg-primary uppercase text-white font-bold px-11 py-5">
-          Send It!
+          <span>Send It!</span>
         </button>
       </div>
     </form>

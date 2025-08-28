@@ -87,23 +87,23 @@ export const NavBar = () => {
               <X size={32}/>
             </button>
           </div>
-          <button className="btn nav-button" onClick={() => clickPopoverLink('/')}>
-            HOME
+          <button className="btn-fill nav-button" onClick={() => clickPopoverLink('/')}>
+            <span>HOME</span>
           </button>
-          <button className="btn nav-button" onClick={() => clickPopoverLink('/about')}>
-            ABOUT
+          <button className="btn-fill nav-button" onClick={() => clickPopoverLink('/about')}>
+            <span>ABOUT</span>
           </button>
-          <button className="btn nav-button" onClick={() => clickPopoverLink('/#projects')}>
-            PROJECTS
+          <button className="btn-fill nav-button" onClick={() => clickPopoverLink('/#projects')}>
+            <span>PROJECTS</span>
           </button>
-          <button className="btn nav-button" onClick={() => clickPopoverLink('/contact')}>
-            CONTACT
+          <button className="btn-fill nav-button" onClick={() => clickPopoverLink('/contact')}>
+            <span>CONTACT</span>
           </button>
-          <button className="btn nav-button" onClick={() => clickPopoverLink('https://github.com/rayventerprise')}>
-            GITHUB
+          <button className="btn-fill nav-button" onClick={() => clickPopoverLink('https://github.com/rayventerprise')}>
+            <span>GITHUB</span>
           </button>
-          <button className="btn nav-button" onClick={() => clickPopoverLink('https://medium.com/@rayventerprise')}>
-            ARTICLES
+          <button className="btn-fill nav-button" onClick={() => clickPopoverLink('https://medium.com/@rayventerprise')}>
+            <span>ARTICLES</span>
           </button>
         </div>
       </motion.div>)}

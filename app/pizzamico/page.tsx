@@ -18,14 +18,14 @@ export default function Page() {
         <div className="flex flex-col md:flex-row justify-between items-center pb-20">
           <div className="space-y-8">
             <div className="text-5xl font-bold">Meet <span className="header-font text-primary">Pizzamico.</span></div>
-            <div className="max-w-[500px]">
+            <div className="max-w-[500px] text-lg">
               The powerhouse to simplify restaurant ecommerce. Take GrubHub, Shopify, DoorDash and blend them together to
               make a beautiful branded solution for restaurants.
             </div>
           </div>
 
           <Image
-                src="/images/projects/pizzamico/iphone-home.png"
+                src="/images/projects/pizzamico/iphone-menu.png"
                 width={250}
                 height={470}
                 alt="Pizzamico image design"
@@ -65,31 +65,31 @@ export default function Page() {
           </TechBlock>
           <TechBlock name="Roles" icon={<Users size={24}/>}>
             <TechStack  label="Full Stack Developer"/>
-            <TechStack label="Engineering Manager"/>
+            <TechStack label="Team Lead"/>
           </TechBlock>
         </div>
 
         <div className="text-sm text-center py-12">*Technologies used in previous builds of the app.</div>
 
         <div className="flex justify-between py-6">
-          <Link href="/#projects">
+          <Link href="/amazon">
             <div className="space-y-3 cursor-pointer">
               <div className="text-gray-700">
-                RETURN TO
+                PREVIOUS
               </div>
               <div className="font-bold text-3xl">
-                WORK
+                AMAZON
               </div>
               <ArrowBendUpLeft className="text-primary" size={84}/>
             </div>
           </Link>
-          <Link href="/fpvexchange">
+          <Link href="/contact">
             <div className="space-y-3 text-right cursor-pointer">
               <div className="text-gray-700">
                 NEXT
               </div>
               <div className="font-bold text-3xl">
-                FPVExchange
+                CONTACT
               </div>
               <div className="flex justify-end">
                 <ArrowBendUpRight className="text-primary" size={84}/>

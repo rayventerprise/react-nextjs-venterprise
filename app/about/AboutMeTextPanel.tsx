@@ -11,7 +11,7 @@ export const AboutMeTextPanel = () => {
           <br/><br/>
           One of my notable achievements was selling a side project that grew to over a million monthly views, which taught me invaluable lessons in scaling and rapid iteration.
           <br/><br/>
-          I’ve led teams to success as an engineering manager and equally enjoy contributing to projects at all levels as an individual contributor.<br/>
+          I’ve led teams to success as an team lead and equally enjoy contributing to projects at all levels as an individual contributor.<br/>
         </div>
       </div>
     </>)

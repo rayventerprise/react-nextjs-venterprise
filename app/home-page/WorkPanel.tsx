@@ -11,21 +11,21 @@ export const WorkPanel = () =>
         <span className="text-primary header-font">
           <Typewriter
               options={{
-                strings: ['React.', 'TypeScript.', 'Laravel.', 'NodeJS.', 'AWS.', 'NextJS.', 'Flutter.', 'Ionic.'],
+                strings: ['React.', 'TypeScript.', 'Laravel.', 'NodeJS.', 'AWS.', 'NextJS.', 'Kubernetes.', 'Ionic.'],
                 autoStart: true,
                 loop: true,
               }}
             />
         </span>
       </div>
-      <span>
+      <span className="text-lg">
         I build responsive websites and applications alone or as part of a team.
         I like clean, modern apps that delight users and are WCAG compliant.
-        Besides web I can also develop for mobile devices using cross-platform SDKs like Flutter or Ionic.
+        Besides web I can also develop for mobile devices using cross-platform SDKs like React Native or Ionic.
       </span>
       <Link href="/about">
         <button className="btn px-8 py-4 border border-gray-600 uppercase">
-          More About Me
+          <span>More About Me</span>
         </button>
       </Link>
     </div>
