@@ -41,7 +41,7 @@ export default function Page() {
         <div className="flex justify-center">
           <AnimateDiv className="bg-gray-100 rounded box-border overflow-hidden p-3">
             <Image
-                src="/images/projects/amazon/placeholder-400.png"
+                src="/images/projects/amazon/workspace-show.png"
                 alt="showcase amazon workspace"
                 className="w-full"
                 width={400}
