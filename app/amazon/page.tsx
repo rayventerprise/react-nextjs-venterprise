@@ -74,7 +74,7 @@ export default function Page() {
         <div className="order-1 lg:order-2 flex justify-center">
           <AnimateDiv className="bg-gray-100 rounded p-3">
             <Image
-                    src="/images/projects/amazon/placeholder-400.png"
+                    src="/images/projects/amazon/workspace-vscode.png"
                     alt="showcase amazon workspace vscode"
                     width={400}
                     height={400}

@@ -6,17 +6,22 @@ export const ContactForm = () => {
     const [responseMsg, setResponseMsg] = useState('')
 
     const submitContactForm = async (e: any) => {
-        setResponseMsg('Sending....')
-        const formData = new FormData(e.target)
+        try {
+            setResponseMsg('Sending....')
+            const formData = new FormData(e.target)
 
-        formData.append('access_key', '0e2ced6d-f1fb-4dcc-a6ee-93614f84cc99')
+            formData.append('access_key', '0e2ced6d-f1fb-4dcc-a6ee-93614f84cc99')
 
-        const res = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            body: formData,
-        }).then((res) => res.json())
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData,
+            })
 
-        setResponseMsg(res.message)
+            const data = await res.json()
+            setResponseMsg(data.message)
+        } catch ( e ) {
+            setResponseMsg('Something went wrong. Please try again later.')
+        }
     }
 
     if ( responseMsg ) {
