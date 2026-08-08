@@ -176,24 +176,26 @@
   }
 }
 
-/* Scroll-reveal "focus-in": elements pull into focus (blur to sharp) while
-   scaling up and rising. .is-visible is added by IntersectionObserver. */
+/* Scroll-reveal "focus-in": elements pull into focus (soft blur to sharp)
+   while scaling up and rising. .is-visible is added by IntersectionObserver.
+   will-change is hinted only while animating (on .is-visible), not held on
+   idle elements, so we don't keep every pending reveal on its own layer. */
 .reveal {
   opacity: 0;
   transform: translateY(22px) scale(0.94);
-  filter: blur(12px);
-  will-change: opacity, transform, filter;
+  filter: blur(4px);
 }
 
 .reveal.is-visible {
   animation: reveal-focus 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, opacity;
 }
 
 @keyframes reveal-focus {
   0% {
     opacity: 0;
     transform: translateY(22px) scale(0.94);
-    filter: blur(12px);
+    filter: blur(4px);
   }
   55% {
     opacity: 1;
