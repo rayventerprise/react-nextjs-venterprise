@@ -17,12 +17,17 @@ export function NavBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // backdrop-blur-0 + will-change keep the backdrop-filter layer warm from
+  // first paint, so scrolling past the threshold flips to backdrop-blur-xl
+  // without a one-time layer-promotion stall. transition-colors (not
+  // transition-all) means only the tint/border fade — the blur never animates,
+  // which would otherwise re-raster the whole bar every frame on first scroll.
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 [will-change:backdrop-filter] transition-colors duration-300 ${
         scrolled
           ? "border-b border-[rgba(var(--border))] bg-[rgb(var(--background))]/80 backdrop-blur-xl"
-          : "border-b border-transparent"
+          : "border-b border-transparent backdrop-blur-0"
       }`}
     >
       <nav className="content-container flex h-24 items-center justify-between">
