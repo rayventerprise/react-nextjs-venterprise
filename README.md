@@ -1,67 +1,57 @@
-# ✨ Portfolio Website
+# Raymond Vandenberg — Portfolio
 
-![Cypress Tests](https://github.com/rayventerprise/react-nextjs-venterprise/actions/workflows/main.yml/badge.svg)
+A modern, responsive portfolio, built with **Next.js 14, TypeScript, React, and Tailwind CSS**. Live at **[venterprise.io](https://venterprise.io)**.
 
-> **Live Demo:** [https://venterprise.io](https://venterprise.io)
+## Tech stack
 
-My modern, responsive portfolio website built with cutting-edge technologies and best practices.
+- **Next.js 14** (App Router) + **React 18**
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling, with light/dark theming via CSS variables
+- **next/font** (Righteous + Poppins) and **next/og** (generated Open Graph image)
+- **Cypress** for end-to-end tests
+- **ESLint** (`eslint-config-next`) for code quality
 
-## 🛠️ Tech Stack
+## Features
 
-| Category | Technology                                                                                                        |
-|----------|-------------------------------------------------------------------------------------------------------------------|
-| **Framework** | ![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)                        |
-| **Language** | ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) |
-| **UI Library** | ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)               |
-| **Icons** | ![Phosphor Icons](https://img.shields.io/badge/Phosphor_Icons-000000?style=for-the-badge)                         |
-| **Linting** | ![ESLint](https://img.shields.io/badge/ESLint-4A3263?style=for-the-badge&logo=eslint&logoColor=white)             |
+- Responsive, accessible layout with **light/dark mode** (no flash on load)
+- Animated **canvas hero background** (flow field) and a scroll-linked left "trace"
+- **Scroll-reveal** animations and a scroll-velocity "float" on the project cards
+- Project **case-study pages** (Amazon, Pizzamico) with device-framed screenshots
+- **Gallery lightbox** — click any project image to expand, with keyboard/arrow navigation
+- **Contact modal** wired to [Web3Forms](https://web3forms.com)
+- Centralized site config in [`lib/site.ts`](lib/site.ts)
 
-## 🚀 Deployment & CI/CD
-
-| Service | Status |
-|---------|--------|
-| **Deployment** | ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white) |
-| **CI/CD** | ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) |
-| **Testing** | ![Cypress](https://img.shields.io/badge/Cypress-17202C?style=for-the-badge&logo=cypress&logoColor=white) |
-
-## 📊 Performance Metrics
-
-<div align="center">
-  <img src="readme-assets/lighthouse.png" alt="Lighthouse Performance Score" width="600"/>
-</div>
-
-## 🎯 Roadmap
-
-### 🔄 In Progress
-- [ ] **Phosphor Icons Fix** - Wait for Next.js types compatibility
-- [ ] **Cypress Configuration** - Remove ts-node workaround when fixed
-
-### ✅ Completed
-- [x] **Portfolio Website** - Modern, responsive design
-- [x] **Performance Optimization** - Lighthouse score optimization
-- [x] **TypeScript Integration** - Full type safety
-- [x] **E2E Testing** - Cypress test suite
-- [x] **Automated Deployment** - Vercel integration
-
-## 🏁 Quick Start
+## Getting started
 
 ```bash
-# Clone the repository
-git clone https://github.com/rayventerprise/react-nextjs-venterprise.git
-
-# Install dependencies
 npm install
-
-# Run development server
 npm run dev
-
-# Run tests
-npm run test:e2e
-
-# Build for production
-npm run build
 ```
 
-## 📝 License
+Then open [http://localhost:3000](http://localhost:3000).
 
-This project is open source and available under the [MIT License](LICENSE).
+## Scripts
+
+| Script | Description |
+| --- | --- |
+| `npm run dev` | Start the dev server |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | Run ESLint |
+| `npm run cypress:run` | Run the e2e suite headless (needs the dev server on `:3000`) |
+| `npm run cypress:open` | Open the Cypress runner |
+
+
+## Testing
+
+A small Cypress smoke suite covers the home hero, navigation, project pages, the
+contact modal, and the image lightbox:
+
+```bash
+npm run dev          # in one terminal
+npm run cypress:run  # in another
+```
+
+## License
+
+MIT

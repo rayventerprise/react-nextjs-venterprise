@@ -1,103 +1,173 @@
-import React from 'react'
-import {PhoneAppPreview} from '../PhoneAppPreview'
-import {TechStack} from '@/app/TechStack'
-import {TechBlock} from '@/app/TechBlock'
-// @ts-ignore
-import {AppleLogo, ArrowBendUpLeft, ArrowBendUpRight, HardDrives, Users} from "@phosphor-icons/react/dist/ssr";
-import Link from "next/link";
-import {Metadata} from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
+import { Reveal } from "@/app/components/ui/Reveal";
+import { TechBlock } from "@/app/components/ui/TechBlock";
+import { ProjectNav } from "@/app/components/project/ProjectNav";
+import { ProjectMeta } from "@/app/components/project/ProjectMeta";
+import { DotPattern } from "@/app/components/ui/DotPattern";
+import { LightboxProvider, LightboxTrigger } from "@/app/components/ui/Lightbox";
+import { HardDrivesIcon, UsersIcon, DevicesIcon } from "@/app/components/ui/icons";
 
 export const metadata: Metadata = {
-  title: 'Pizzamico'
-}
-export default function Page() {
+  title: "Pizzamico",
+  description: "A branded online ordering platform for restaurants.",
+};
+
+const screens = [
+  { label: "Cart", src: "/images/projects/pizzamico/iphone-cart.png" },
+  { label: "Edit Item", src: "/images/projects/pizzamico/iphone-edit-item.png" },
+  { label: "Menu", src: "/images/projects/pizzamico/iphone-menu.png" },
+  { label: "Checkout", src: "/images/projects/pizzamico/iphone-checkout.png" },
+  { label: "POS", src: "/images/projects/pizzamico/iphone-pos-index.png" },
+  { label: "Order", src: "/images/projects/pizzamico/iphone-pos-order.png" },
+  { label: "Dashboard", src: "/images/projects/pizzamico/iphone-dashboard.png" },
+  { label: "Settings", src: "/images/projects/pizzamico/iphone-settings.png" },
+  { label: "Reports", src: "/images/projects/pizzamico/iphone-reports.png" },
+];
+
+const gallery = screens.map((s) => ({
+  src: s.src,
+  alt: `Pizzamico ${s.label} screen`,
+  width: 1570,
+  height: 2932,
+}));
+
+const stats = [
+  { value: "500K+", label: "Users reached" },
+  { value: "Millions", label: "Orders processed" },
+  { value: "iOS · Android · Web", label: "Platforms shipped" },
+];
+
+export default function PizzamicoPage() {
   return (
-    <>
-      <div>
-        <div className="flex flex-col md:flex-row justify-between items-center pb-20">
-          <div className="space-y-8">
-            <div className="text-5xl font-bold">Meet <span className="header-font text-primary">Pizzamico.</span></div>
-            <div className="max-w-[500px] text-lg">
-              The powerhouse to simplify restaurant ecommerce. Take GrubHub, Shopify, DoorDash and blend them together to
-              make a beautiful branded solution for restaurants.
+    <LightboxProvider images={gallery}>
+    <article className="content-container py-16">
+      {/* Meta eyebrow (outside the band) */}
+      <Reveal className="mb-6">
+        <ProjectMeta items={["Pizzamico", "Senior Software Engineer", "Jan 2017 – Feb 2024", "Remote"]} />
+      </Reveal>
+
+      {/* Hero band */}
+      <Reveal>
+        <section className="relative overflow-hidden rounded-3xl border border-[rgba(var(--border))] bg-[rgb(var(--surface))] p-8 md:p-12 lg:p-14">
+          {/* Left color clip */}
+          <div className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-emerald-400 to-emerald-600" aria-hidden="true" />
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 w-2/5"
+            style={{ background: "linear-gradient(to right, rgba(16,185,129,0.10), transparent)" }}
+            aria-hidden="true"
+          />
+          <DotPattern />
+          <div className="relative grid items-center gap-10 md:grid-cols-2">
+            <div className="space-y-6">
+              <h1 className="header-font text-4xl leading-tight md:text-6xl">
+                Meet <span className="text-emerald-500">Pizzamico.</span>
+              </h1>
+              <p className="text-lg leading-relaxed opacity-80">
+                The powerhouse to simplify restaurant ecommerce, blending GrubHub,
+                Shopify, and DoorDash into one beautiful branded solution. I built the
+                full platform from the ground up with Laravel, Python, and React.
+              </p>
+              <div className="flex flex-wrap gap-x-10 gap-y-4 pt-2">
+                {stats.map((s) => (
+                  <div key={s.label}>
+                    <div className="header-font text-2xl text-emerald-500 md:text-3xl">{s.value}</div>
+                    <div className="text-xs uppercase tracking-wider opacity-60">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="flex justify-center md:justify-end">
+              <LightboxTrigger src="/images/projects/pizzamico/iphone-menu.png" className="-rotate-6">
+                <Image
+                  src="/images/projects/pizzamico/iphone-menu.png"
+                  alt="Pizzamico ordering app menu screen"
+                  width={1570}
+                  height={2932}
+                  className="h-auto w-[220px] drop-shadow-2xl md:w-[250px]"
+                  priority
+                />
+              </LightboxTrigger>
             </div>
           </div>
+        </section>
+      </Reveal>
 
-          <Image
-                src="/images/projects/pizzamico/iphone-menu.png"
-                width={250}
-                height={470}
-                alt="Pizzamico image design"
-                className="-rotate-12 md:mr-12"/>
+      {/* Screen gallery: 3D fan of devices on a spotlit stage */}
+      <section className="relative my-16 overflow-hidden rounded-3xl bg-neutral-900 px-6 py-20">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(65% 55% at 50% 0%, rgba(16,185,129,0.20), transparent 70%)",
+          }}
+          aria-hidden="true"
+        />
+        <div className="relative grid grid-cols-2 justify-items-center gap-x-6 gap-y-14 [perspective:1600px] md:grid-cols-3 md:gap-y-16">
+          {screens.map((screen, i) => {
+            const tilt = ["tilt-l", "tilt-mid", "tilt-r"][i % 3];
+            return (
+              <Reveal key={screen.label} delay={(i % 3) * 80} className="flex flex-col items-center gap-4">
+                <div
+                  className={`phone-tilt ${tilt}`}
+                  style={{
+                    WebkitBoxReflect:
+                      "below 4px linear-gradient(to bottom, transparent 62%, rgba(255,255,255,0.16))",
+                  }}
+                >
+                  <LightboxTrigger src={screen.src}>
+                    <Image
+                      src={screen.src}
+                      alt={`Pizzamico ${screen.label} screen`}
+                      width={1570}
+                      height={2932}
+                      className="h-auto w-[150px] drop-shadow-2xl md:w-[190px]"
+                    />
+                  </LightboxTrigger>
+                </div>
+                <span className="text-sm font-medium uppercase tracking-wider text-white/70">
+                  {screen.label}
+                </span>
+              </Reveal>
+            );
+          })}
         </div>
-      </div>
-      <div className="bg-[#202020] w-full flex items-center justify-center">
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-3 py-12">
-            <PhoneAppPreview src="/images/projects/pizzamico/iphone-cart.png"/>
-            <PhoneAppPreview src="/images/projects/pizzamico/iphone-edit-item.png" />
-            <PhoneAppPreview src="/images/projects/pizzamico/iphone-menu.png"/>
-            <PhoneAppPreview src="/images/projects/pizzamico/iphone-checkout.png" />
-            <PhoneAppPreview src="/images/projects/pizzamico/iphone-pos-index.png"/>
-            <PhoneAppPreview src="/images/projects/pizzamico/iphone-pos-order.png" />
-            <PhoneAppPreview src="/images/projects/pizzamico/iphone-dashboard.png"/>
-            <PhoneAppPreview src="/images/projects/pizzamico/iphone-settings.png" />
-            <PhoneAppPreview src="/images/projects/pizzamico/iphone-reports.png"/>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div className="flex w-full md:justify-evenly space-y-4 md:space-y-0 md:items-start flex-col md:flex-row pt-24">
-          <TechBlock name="Technology" icon={<HardDrives size={24}/>}>
-            <TechStack label="Laravel" />
-            <TechStack label="Node"/>
-            <TechStack label="React"/>
-            <TechStack label="NextJS"/>
-            <TechStack label="Ionic"/>
-            <TechStack label="Angular*"/>
-            <TechStack label="Vue*"/>
-          </TechBlock>
-          <TechBlock name="Platforms" icon={<AppleLogo size={24}/>}>
-            <TechStack  label="iOS"/>
-            <TechStack label="Android"/>
-            <TechStack label="Web"/>
-          </TechBlock>
-          <TechBlock name="Roles" icon={<Users size={24}/>}>
-            <TechStack  label="Full Stack Developer"/>
-            <TechStack label="Team Lead"/>
-          </TechBlock>
-        </div>
+      </section>
 
-        <div className="text-sm text-center py-12">*Technologies used in previous builds of the app.</div>
+      {/* Tech / platforms / roles */}
+      <section className="grid gap-6 pt-12 md:grid-cols-3">
+        <Reveal>
+          <TechBlock
+            name="Technology"
+            icon={<HardDrivesIcon className="h-6 w-6" />}
+            items={["Laravel", "Node", "React", "Next.js", "Ionic", "Angular*", "Vue*"]}
+          />
+        </Reveal>
+        <Reveal delay={80}>
+          <TechBlock
+            name="Platforms"
+            icon={<DevicesIcon className="h-6 w-6" />}
+            items={["iOS", "Android", "Web"]}
+          />
+        </Reveal>
+        <Reveal delay={160}>
+          <TechBlock
+            name="Roles"
+            icon={<UsersIcon className="h-6 w-6" />}
+            items={["Full Stack Developer", "Team Lead · led 3 engineers"]}
+          />
+        </Reveal>
+      </section>
 
-        <div className="flex justify-between py-6">
-          <Link href="/amazon">
-            <div className="space-y-3 cursor-pointer">
-              <div className="text-gray-700">
-                PREVIOUS
-              </div>
-              <div className="font-bold text-3xl">
-                AMAZON
-              </div>
-              <ArrowBendUpLeft className="text-primary" size={84}/>
-            </div>
-          </Link>
-          <Link href="/contact">
-            <div className="space-y-3 text-right cursor-pointer">
-              <div className="text-gray-700">
-                NEXT
-              </div>
-              <div className="font-bold text-3xl">
-                CONTACT
-              </div>
-              <div className="flex justify-end">
-                <ArrowBendUpRight className="text-primary" size={84}/>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </div>
-    </>
-  )
+      <p className="py-10 text-center text-sm opacity-60">
+        *Technologies used in previous builds of the app.
+      </p>
+
+      <ProjectNav
+        prev={{ label: "Previous", title: "Amazon", href: "/amazon" }}
+        next={{ label: "Next", title: "Contact", href: "/#contact" }}
+      />
+    </article>
+    </LightboxProvider>
+  );
 }

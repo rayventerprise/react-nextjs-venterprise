@@ -1,15 +1,17 @@
-import {WhoPanel} from "@/app/home-page/WhoPanel";
-import {WorkPanel} from "@/app/home-page/WorkPanel";
-import {ProjectsPanel} from "@/app/home-page/ProjectsPanel";
-import {AreYouThinkingPanel} from "@/app/home-page/AreYouThinkingPanel";
+import { Hero } from "@/app/sections/Hero";
+import { Work } from "@/app/sections/Work";
+import { Projects } from "@/app/sections/Projects";
+import { Contact } from "@/app/sections/Contact";
+import { LeftTrace } from "@/app/components/effects/LeftTrace";
 
 export default function Home() {
   return (
     <>
-      <WhoPanel/>
-      <WorkPanel/>
-      <ProjectsPanel/>
-      <AreYouThinkingPanel/>
+      <LeftTrace />
+      <Hero />
+      <Work />
+      <Projects />
+      <Contact />
     </>
-  )
+  );
 }

@@ -3,81 +3,222 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --background: 255, 255, 255;
+  --foreground: 11, 11, 15;
+  --surface: 248, 248, 250;
+  --border: 18, 18, 23, 0.08;
 }
 
 .dark {
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 0, 0, 0;
+  --background: 8, 8, 11;
+  --foreground: 240, 240, 245;
+  --surface: 18, 18, 23;
+  --border: 255, 255, 255, 0.08;
 }
 
-.dark .MuiInputBase-root, .dark .MuiTextarea-root {
-    @apply bg-gray-800 text-white
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply flex min-h-screen flex-col font-sans antialiased;
+    background: rgb(var(--background));
+    color: rgb(var(--foreground));
+  }
+
+  ::selection {
+    @apply bg-primary/90 text-white;
+  }
 }
 
-.dark .MuiInputLabel-root {
-  @apply text-gray-500;
-}
+@layer components {
+  .content-container {
+    @apply mx-auto w-full max-w-content px-6 xl:px-0;
+  }
 
-body {
-  @apply flex flex-col items-center flex-grow w-full;
-  background: rgb(var(--background-rgb));
-  color: rgb(var(--foreground-rgb));
-}
+  .header-font {
+    @apply font-display;
+  }
 
-.home-page-pattern {
-    @apply absolute inset-0 w-full h-full bg-cover bg-no-repeat opacity-[.03] pointer-events-none;
-    background-image: url('/images/bg-pattern.svg');
-}
+  /* Slide-fill button: signature interaction from the original site */
+  .btn {
+    @apply relative inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-lg
+           font-semibold uppercase tracking-wide transition-transform duration-200 ease-out
+           will-change-transform hover:-translate-y-0.5 active:translate-y-0;
+  }
 
-.nav-button {
-  @apply text-left flex-grow flex py-6 justify-center w-full text-3xl text-gray-300 hover:text-gray-50 duration-500 transition-colors header-font
-}
-
-.header-font {
-  font-family: var(--font-righteous), cursive;
-}
-
-.stack-badge {
-  @apply bg-white bg-opacity-40 uppercase px-3 py-2 text-xs font-bold m-1
-}
-
-.content-container {
-  @apply px-4 xl:px-0 w-full;
-  max-width: 1080px;
-}
-
-
-.btn-fill {
-    @apply hover:bg-secondary transition-colors duration-500 hover:text-white
-}
-
-
-.btn {
-    @apply cursor-pointer rounded overflow-hidden hover:text-white;
-}
-
-.btn::before {
-    content: "";
-    @apply absolute top-0 left-0 h-full w-0 bg-secondary transition-all duration-300 ease-out;
-    z-index: 0; /* needs plain CSS since Tailwind can't apply directly to pseudo-elements */
-}
-
-.btn:hover::before {
-    @apply w-full;
-}
-
-.btn, .btn > * {
+  .btn > * {
     @apply relative z-10;
+  }
+
+  .btn::before {
+    content: "";
+    @apply absolute left-0 top-0 z-0 h-full w-0 bg-secondary transition-all duration-300 ease-out;
+  }
+
+  .btn:hover::before {
+    @apply w-full;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white shadow-lg shadow-primary/25 hover:text-white;
+  }
+
+  .btn-outline {
+    @apply border border-black/15 text-current hover:text-white dark:border-white/20;
+  }
+
+  .btn-outline::before {
+    @apply bg-primary;
+  }
+
+  .stack-badge {
+    @apply rounded-md bg-white/15 px-3 py-1.5 text-xs font-bold uppercase tracking-wider
+           text-white ring-1 ring-inset ring-white/20 backdrop-blur-sm;
+  }
+
+  .card {
+    @apply rounded-2xl border border-[rgba(var(--border))] bg-[rgb(var(--surface))];
+  }
+
+  .link-underline {
+    @apply relative text-current no-underline transition-colors duration-300 hover:text-primary;
+  }
 }
 
-a {
-  @apply hover:underline transition-colors hover:text-primary duration-500
+/* Hamburger toggle: unequal stacked bars that spin into an X on open.
+   Deliberately not the stock three-line morph. */
+.hamburger {
+  position: relative;
+  display: block;
+  height: 16px;
+  width: 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .MuiOutlinedInput-root {
-    @apply bg-white
+.hamburger .bar {
+  position: absolute;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform-origin: center;
+  transition:
+    transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    width 0.4s ease,
+    opacity 0.25s ease;
+}
+
+.hamburger .bar.top {
+  top: 0;
+  width: 100%;
+  transition-delay: 0s;
+}
+.hamburger .bar.mid {
+  top: 7px;
+  width: 65%;
+  transition-delay: 0.05s;
+}
+.hamburger .bar.bot {
+  top: 14px;
+  width: 85%;
+  transition-delay: 0.1s;
+}
+
+/* Open: top & bottom spin an extra half-turn into an X; middle slides out right. */
+.hamburger[data-open="true"] .bar.top {
+  width: 100%;
+  transform: translateY(7px) rotate(225deg);
+}
+.hamburger[data-open="true"] .bar.mid {
+  width: 0%;
+  opacity: 0;
+  transform: translateX(10px);
+}
+.hamburger[data-open="true"] .bar.bot {
+  width: 100%;
+  transform: translateY(-7px) rotate(-225deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger .bar {
+    transition-duration: 0.001s;
+    transition-delay: 0s;
+  }
+}
+
+/* Dynamic phone gallery: 3D fan of devices that straighten on hover. */
+.phone-tilt {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-style: preserve-3d;
+}
+.phone-tilt.tilt-l {
+  transform: rotateY(18deg) rotateX(4deg);
+}
+.phone-tilt.tilt-mid {
+  transform: rotateX(4deg);
+}
+.phone-tilt.tilt-r {
+  transform: rotateY(-18deg) rotateX(4deg);
+}
+.phone-tilt:hover {
+  transform: rotateY(0deg) rotateX(0deg) translateZ(30px) scale(1.05) !important;
+  z-index: 10;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-tilt,
+  .phone-tilt.tilt-l,
+  .phone-tilt.tilt-mid,
+  .phone-tilt.tilt-r {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Scroll-reveal "focus-in": elements pull into focus (blur to sharp) while
+   scaling up and rising. .is-visible is added by IntersectionObserver. */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px) scale(0.94);
+  filter: blur(12px);
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible {
+  animation: reveal-focus 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes reveal-focus {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+    filter: blur(12px);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+  .animate-float,
+  .animate-gradient-pan,
+  .animate-blink {
+    animation: none !important;
   }
 }

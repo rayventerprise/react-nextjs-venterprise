@@ -1,51 +1,53 @@
-import type {Metadata} from 'next'
-import {Poppins, Righteous} from 'next/font/google'
-import './globals.css'
-import {NavBar} from "@/app/NavBar";
-import classNames from "classnames";
-import {Footer} from "@/app/Footer";
-import React from "react";
-import {AppRouterCacheProvider} from '@mui/material-nextjs/v14-appRouter';
-import theme from "@/app/theme";
-import {ThemeProvider} from "@mui/material";
+import type { Metadata } from "next";
+import { Righteous, Poppins } from "next/font/google";
+import "./globals.css";
+import { NavBar } from "@/app/components/layout/NavBar";
+import { Footer } from "@/app/components/layout/Footer";
+import { ThemeScript } from "@/app/components/ui/ThemeScript";
 
 const righteous = Righteous({
-  subsets: ['latin'],
   weight: "400",
-  display: 'swap',
-  variable: '--font-righteous'
-})
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-righteous",
+});
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: "400",
-  display: 'swap',
-  preload: true
-})
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
-  title: 'Vandenberg Enterprise',
-  description: 'Portfolio website for Vandenberg Enterprise.',
-}
+  title: {
+    default: "Raymond Vandenberg",
+    template: "%s | Raymond Vandenberg",
+  },
+  description:
+    "Ray Vandenberg: full stack engineer, team lead, and startup enthusiast building scalable, delightful web and mobile applications.",
+  metadataBase: new URL("https://venterprise.io"),
+  openGraph: {
+    title: "Raymond Vandenberg",
+    description:
+      "Full stack engineer building scalable, delightful web and mobile applications.",
+    type: "website",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={classNames(poppins.className, righteous.variable)}>
-        <AppRouterCacheProvider>
-
-          <ThemeProvider theme={theme}>
-            <NavBar/>
-            <main className="content-container">
-              {children}
-            </main>
-            <Footer/>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${righteous.variable} ${poppins.variable}`}>
+        <ThemeScript />
+        <NavBar />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
-  )
+  );
 }
