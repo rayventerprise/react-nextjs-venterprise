@@ -48,7 +48,7 @@ export function Hero() {
           <span className="font-semibold text-primary">Amazon</span>, I built the
           platform that economists used to run{" "}
           <span className="font-semibold text-primary">large-scale AI/ML</span>{" "}
-          workloads on demand — and I work with modern AI tooling daily to ship
+          workloads on demand. I also work with modern AI tooling daily to ship
           products faster.
         </p>
 
