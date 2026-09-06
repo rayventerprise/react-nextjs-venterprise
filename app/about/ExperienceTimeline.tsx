@@ -1,49 +1,8 @@
 import { Reveal } from "@/app/components/ui/Reveal";
+import { roles } from "@/lib/site";
 
-interface Role {
-  company: string;
-  title: string;
-  dates: string;
-  location?: string;
-  description?: string;
-  current?: boolean;
-}
-
-const roles: Role[] = [
-  {
-    company: "BRG",
-    title: "Senior Software Engineer",
-    dates: "Oct 2025 – Present",
-    location: "Remote",
-    description:
-      "Senior full-stack engineering across the product, working primarily in Ruby on Rails.",
-    current: true,
-  },
-  {
-    company: "Amazon",
-    title: "Senior Software Development Engineer",
-    dates: "Feb 2024 – Oct 2025",
-    location: "Austin, TX",
-    description:
-      "Built internal tooling for customizable compute environments (GPU/CPU configs, data sources) powering scalable AI/ML workflows and experimentation.",
-  },
-  {
-    company: "Pizzamico",
-    title: "Senior Software Engineer",
-    dates: "Jan 2017 – Feb 2024",
-    location: "Remote",
-    description:
-      "Built the full-stack ordering platform from the ground up (Laravel, Python, React), scaling to 500K+ users and millions of restaurant orders. Grew from engineer to team lead, leading a team of 3 engineers.",
-  },
-  {
-    company: "Golevel, LLC",
-    title: "Junior Software Engineer",
-    dates: "Feb 2015 – Jan 2017",
-    location: "Florida",
-    description:
-      "Built MVPs and production sites for clients in a fast-paced agency environment (Vue, Angular, React, PHP).",
-  },
-];
+// Roles live in lib/site.ts so this timeline, the Person JSON-LD, and the
+// generated /resume.txt all render the same history.
 
 export function ExperienceTimeline() {
   return (

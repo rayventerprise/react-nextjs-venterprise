@@ -4,16 +4,32 @@ import { Reveal } from "@/app/components/ui/Reveal";
 import { TechBreakdown } from "@/app/about/TechBreakdown";
 import { ExperienceTimeline } from "@/app/about/ExperienceTimeline";
 import { ContactModal } from "@/app/components/contact/ContactModal";
+import { JsonLd } from "@/app/components/seo/JsonLd";
+import { graph, pageSchema } from "@/lib/structured-data";
+
+const description =
+  "About Ray Vandenberg: a senior full stack engineer with 10+ years across startups and enterprise, spanning web, mobile, infrastructure, and the AI/ML compute platform he built at Amazon.";
 
 export const metadata: Metadata = {
-  title: "About",
-  description:
-    "About Ray Vandenberg: a decade of full stack, mobile, and infrastructure experience across startups and enterprise.",
+  title: "About — Full Stack & AI/ML Platform Engineer",
+  description,
+  alternates: { canonical: "/about" },
+  openGraph: { title: "About Ray Vandenberg", description, url: "/about" },
 };
 
 export default function AboutPage() {
   return (
     <article className="content-container py-20">
+      <JsonLd
+        data={graph(
+          pageSchema({
+            path: "/about",
+            name: "About Raymond Vandenberg",
+            description,
+            isProfile: true,
+          })
+        )}
+      />
       {/* About me */}
       <section className="flex flex-col items-center gap-12 md:flex-row md:items-start">
         <Reveal className="w-full space-y-7 md:w-3/5">
@@ -43,7 +59,7 @@ export default function AboutPage() {
               under real traffic.
             </p>
             <p>
-              Since then I&apos;ve led engineering teams and, just as happily, gone
+              Since then I&#39;ve served as a team lead and just as happily, gone
               heads-down as an individual contributor.
             </p>
           </div>

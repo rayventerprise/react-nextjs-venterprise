@@ -4,7 +4,7 @@ import { Reveal } from "@/app/components/ui/Reveal";
 
 const stack = [
   "React", "TypeScript", "Next.js", "Node.js",
-  "Laravel", "AWS", "Kubernetes", "Ionic",
+  "Laravel", "Python", "AWS", "Kubernetes", "Ionic",
 ];
 
 export function Work() {
@@ -14,9 +14,14 @@ export function Work() {
         <Reveal>
           <h2 className="header-font flex flex-wrap items-center justify-center gap-x-3 text-3xl font-bold md:text-5xl">
             <span>I work with</span>
-            <span className="text-primary">
-              <Typewriter words={["React.", "TypeScript.", "Laravel.", "Node.js.", "AWS.", "Next.js.", "Kubernetes.", "Ionic."]} />
+            {/* The animated word is decorative: it renders empty server-side,
+                so the heading carried no technology names for crawlers, and
+                screen readers would announce every character as it types. The
+                sr-only list is the real heading content for both. */}
+            <span className="text-primary" aria-hidden="true">
+              <Typewriter words={stack.map((tech) => `${tech}.`)} />
             </span>
+            <span className="sr-only">{stack.join(", ")}.</span>
           </h2>
         </Reveal>
 
@@ -25,7 +30,8 @@ export function Work() {
             I architect and ship production web and mobile applications, leading teams
             and staying hands-on in the codebase. I care about clean, accessible
             (WCAG-compliant) systems that scale and hold up under real traffic. Beyond
-            web, I build cross-platform mobile apps with React Native and Ionic.
+            web, I build cross-platform mobile apps with React Native and Ionic, and
+            the infrastructure that AI/ML workloads run on.
           </p>
         </Reveal>
 

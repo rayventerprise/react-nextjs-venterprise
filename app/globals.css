@@ -179,14 +179,17 @@
 /* Scroll-reveal "focus-in": elements pull into focus (soft blur to sharp)
    while scaling up and rising. .is-visible is added by IntersectionObserver.
    will-change is hinted only while animating (on .is-visible), not held on
-   idle elements, so we don't keep every pending reveal on its own layer. */
-.reveal {
+   idle elements, so we don't keep every pending reveal on its own layer.
+   Scoped to html.js (set by ThemeScript before paint) so that a render without
+   JS — a crawler snapshotting pre-hydration, reader mode — shows the content
+   rather than a page of invisible text. */
+html.js .reveal {
   opacity: 0;
   transform: translateY(22px) scale(0.94);
   filter: blur(4px);
 }
 
-.reveal.is-visible {
+html.js .reveal.is-visible {
   animation: reveal-focus 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   will-change: transform, opacity;
 }
@@ -212,7 +215,9 @@
   html {
     scroll-behavior: auto;
   }
-  .reveal {
+  /* Matches the html.js specificity above so these still win. */
+  html.js .reveal,
+  html.js .reveal.is-visible {
     opacity: 1;
     transform: none;
     filter: none;

@@ -26,22 +26,30 @@ export function Hero() {
           10+ years · Startups to enterprise
         </span>
 
-        <h1 className="header-font animate-fade-up text-5xl leading-[1.05] tracking-tight md:text-7xl" style={{ animationDelay: "60ms" }}>
-          Hey, I&apos;m{" "}
-          <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Ray
+        {/* One h1 carrying both the greeting and the actual job title — the
+            title is the part search engines and LLM extraction read. */}
+        <h1 className="animate-fade-up" style={{ animationDelay: "60ms" }}>
+          <span className="header-font block text-5xl leading-[1.05] tracking-tight md:text-7xl">
+            Hey, I&apos;m{" "}
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Ray
+            </span>
+            .
           </span>
-          .
+          <span className="mt-6 block text-balance text-lg font-medium tracking-tight opacity-70 md:text-2xl">
+            Full stack engineer building web, mobile, and AI/ML platforms.
+          </span>
         </h1>
 
         <p className="mt-8 max-w-2xl animate-fade-up text-lg leading-relaxed opacity-80 md:text-xl" style={{ animationDelay: "140ms" }}>
           I&apos;m a full stack engineer, team lead, and startup operator with over
-          a decade of experience. I&apos;ve worked in both startups and large
-          enterprises to build scalable web and mobile applications. On top of that
-          experience, I&apos;ve fully embraced{" "}
-          <span className="font-semibold text-primary">AI</span>. Most recently at
-          Amazon, I built platform tooling that powered large-scale AI/ML workflows,
-          and I use modern AI tools daily to ship intelligent products.
+          a decade of experience across startups and large enterprises, building
+          scalable web and mobile applications. Most recently at{" "}
+          <span className="font-semibold text-primary">Amazon</span>, I built the
+          platform that economists used to run{" "}
+          <span className="font-semibold text-primary">large-scale AI/ML</span>{" "}
+          workloads on demand — and I work with modern AI tooling daily to ship
+          products faster.
         </p>
 
         <div className="mt-12 flex animate-fade-up flex-col items-center gap-4 sm:flex-row" style={{ animationDelay: "220ms" }}>

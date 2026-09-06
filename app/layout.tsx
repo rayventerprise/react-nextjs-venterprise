@@ -4,6 +4,9 @@ import "./globals.css";
 import { NavBar } from "@/app/components/layout/NavBar";
 import { Footer } from "@/app/components/layout/Footer";
 import { ThemeScript } from "@/app/components/ui/ThemeScript";
+import { JsonLd } from "@/app/components/seo/JsonLd";
+import { siteConfig, expertise } from "@/lib/site";
+import { graph, personSchema, websiteSchema } from "@/lib/structured-data";
 
 const righteous = Righteous({
   weight: "400",
@@ -21,17 +24,43 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "Raymond Vandenberg",
-    template: "%s | Raymond Vandenberg",
+    default: `${siteConfig.name} — ${siteConfig.roleLong}`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Ray Vandenberg: full stack engineer, team lead, and startup enthusiast building scalable, delightful web and mobile applications.",
-  metadataBase: new URL("https://venterprise.io"),
+  description: siteConfig.description,
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  keywords: expertise,
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Raymond Vandenberg",
-    description:
-      "Full stack engineer building scalable, delightful web and mobile applications.",
-    type: "website",
+    title: `${siteConfig.name} — ${siteConfig.roleLong}`,
+    description: siteConfig.tagline,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: "en_US",
+    type: "profile",
+    firstName: "Raymond",
+    lastName: "Vandenberg",
+    username: "rayventerprise",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — ${siteConfig.roleLong}`,
+    description: siteConfig.tagline,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -44,6 +73,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${righteous.variable} ${poppins.variable}`}>
         <ThemeScript />
+        <JsonLd data={graph(personSchema(), websiteSchema())} />
         <NavBar />
         <main className="flex-grow">{children}</main>
         <Footer />

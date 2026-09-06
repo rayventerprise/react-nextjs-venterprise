@@ -14,12 +14,17 @@ export function Footer() {
           <p className="mt-1 text-sm opacity-60">© {year} · Built with Next.js &amp; TypeScript</p>
         </div>
 
-        <nav className="flex items-center gap-6 text-sm">
+        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
           {navLinks.map((l) => (
             <Link key={l.href} href={l.href} className="link-underline">
               {l.label}
             </Link>
           ))}
+          {/* Plain-text résumé. Linked so crawlers can discover it — they find
+              routes by following links, not by guessing paths. */}
+          <a href="/resume.txt" className="link-underline">
+            Résumé
+          </a>
         </nav>
 
         <div className="flex items-center gap-3">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ArrowIcon } from "@/app/components/ui/icons";
 import { siteConfig } from "@/lib/site";
@@ -15,15 +15,53 @@ export function ContactModal({ className = "" }: { className?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
   const firstFieldRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
+  // Only touches setState and refs, so it's stable for the lifetime of the
+  // component and safe as an effect dependency.
+  const close = useCallback(() => {
+    setOpen(false);
+    // Send focus back to the button that opened the dialog.
+    triggerRef.current?.focus();
+    // Reset back to the form shortly after the close animation.
+    window.setTimeout(() => {
+      setStatus("idle");
+      setMessage("");
+    }, 300);
+  }, []);
+
   useEffect(() => {
     if (!open) return;
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        // Route through close() so Escape restores focus to the trigger too,
+        // rather than dropping it on <body>.
+        close();
+        return;
+      }
+      if (e.key !== "Tab") return;
+
+      // Focus trap: keep Tab cycling inside the dialog while it's open.
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
+
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     // Focus the first field once the open transition starts.
@@ -33,16 +71,7 @@ export function ContactModal({ className = "" }: { className?: string }) {
       document.body.style.overflow = "";
       window.clearTimeout(id);
     };
-  }, [open]);
-
-  const close = () => {
-    setOpen(false);
-    // Reset back to the form shortly after the close animation.
-    window.setTimeout(() => {
-      setStatus("idle");
-      setMessage("");
-    }, 300);
-  };
+  }, [open, close]);
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -76,6 +105,7 @@ export function ContactModal({ className = "" }: { className?: string }) {
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen(true)}
         className={`group ${className}`}
@@ -90,8 +120,20 @@ export function ContactModal({ className = "" }: { className?: string }) {
       {mounted &&
         createPortal(
           <div
+            // `invisible` (visibility: hidden) is what takes the form fields
+            // out of the tab order and the accessibility tree while closed.
+            // Opacity alone left them focusable, which both dropped keyboard
+            // users into an invisible form and made the aria-hidden below an
+            // ARIA violation (aria-hidden must not wrap focusable content).
+            //
+            // Visibility is a discrete property, so it's switched with a
+            // zero-duration transition rather than animated: instantly on open,
+            // and delayed by the 300ms fade on close so the exit animation
+            // still plays before the dialog is pulled out of the tree.
             className={`fixed inset-0 z-[100] flex items-center justify-center p-4 ${
-              open ? "" : "pointer-events-none"
+              open
+                ? "visible [transition:visibility_0s]"
+                : "invisible pointer-events-none [transition:visibility_0s_300ms] motion-reduce:[transition:visibility_0s]"
             }`}
             aria-hidden={!open}
           >
@@ -105,10 +147,15 @@ export function ContactModal({ className = "" }: { className?: string }) {
 
         {/* Dialog */}
         <div
+          ref={dialogRef}
           role="dialog"
           aria-modal="true"
           aria-label="Contact Ray"
-          className={`relative w-full max-w-md rounded-2xl border border-[rgba(var(--border))] bg-[rgb(var(--background))] p-8 text-left text-[rgb(var(--foreground))] shadow-2xl transition-all duration-300 ease-out motion-reduce:transition-none ${
+          // Transition opacity/transform only. `transition-all` also covered
+          // `visibility`, so the wrapper's hidden→visible flip was animated
+          // over 300ms here — leaving the dialog unfocusable for the whole
+          // opening, which silently defeated the auto-focus.
+          className={`relative w-full max-w-md rounded-2xl border border-[rgba(var(--border))] bg-[rgb(var(--background))] p-8 text-left text-[rgb(var(--foreground))] shadow-2xl transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-none ${
             open ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"
           }`}
         >

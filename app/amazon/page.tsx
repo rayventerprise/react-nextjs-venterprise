@@ -7,11 +7,35 @@ import { BrowserFrame } from "@/app/components/ui/DeviceFrames";
 import { DotPattern } from "@/app/components/ui/DotPattern";
 import { LightboxProvider, LightboxTrigger } from "@/app/components/ui/Lightbox";
 import { HardDrivesIcon, UsersIcon } from "@/app/components/ui/icons";
+import { JsonLd } from "@/app/components/seo/JsonLd";
+import { graph, pageSchema, projectSchema } from "@/lib/structured-data";
+
+const description =
+  "How I helped build Amazon's internal workspace compute platform: on-demand GPU/CPU environments that let economists run large-scale AI/ML workloads, Jupyter notebooks, R, and Spark with no infrastructure to manage.";
+
+const stack = [
+  "Java",
+  "Python",
+  "React",
+  "AWS CDK",
+  "AWS Lambda",
+  "Kubernetes",
+  "Amazon EKS",
+  "AI/ML Infrastructure",
+  "GPU Compute",
+  "Jupyter",
+  "Apache Spark",
+];
 
 export const metadata: Metadata = {
-  title: "Amazon",
-  description:
-    "An internal workspace compute platform for Amazon economists to run AI/ML workloads.",
+  title: "Amazon — AI/ML Workspace Compute Platform",
+  description,
+  alternates: { canonical: "/amazon" },
+  openGraph: {
+    title: "Amazon — AI/ML Workspace Compute Platform",
+    description,
+    url: "/amazon",
+  },
 };
 
 const highlights = [
@@ -29,6 +53,23 @@ export default function AmazonPage() {
   return (
     <LightboxProvider images={gallery}>
     <article className="content-container py-16">
+      <JsonLd
+        data={graph(
+          pageSchema({
+            path: "/amazon",
+            name: "Amazon — AI/ML Workspace Compute Platform",
+            description,
+          }),
+          projectSchema({
+            path: "/amazon",
+            name: "Amazon Economist Workspace — AI/ML Compute Platform",
+            description,
+            stack,
+            dates: "2024-02/2025-10",
+            image: "/images/projects/amazon/workspace-show.png",
+          })
+        )}
+      />
       {/* Meta eyebrow (outside the band) */}
       <Reveal className="mb-6">
         <ProjectMeta items={["Amazon", "Senior SDE", "Feb 2024 – Oct 2025", "Austin, TX"]} />
@@ -103,9 +144,9 @@ export default function AmazonPage() {
       {/* Feature: integrated dev environment */}
       <section className="grid items-center gap-10 pt-20 lg:grid-cols-2">
         <Reveal className="order-2 lg:order-1">
-          <div className="text-sm uppercase tracking-widest text-primary">
+          <h2 className="text-sm uppercase tracking-widest text-primary">
             Integrated dev environment
-          </div>
+          </h2>
           <p className="mt-4 text-lg leading-relaxed opacity-90">
             Users could open VS Code directly from their workspace and start coding
             right away, connecting data sources and running analyses seamlessly.
@@ -130,7 +171,11 @@ export default function AmazonPage() {
       </section>
 
       {/* Tech / roles */}
-      <section className="grid gap-6 pt-24 md:grid-cols-2">
+      <section className="pt-24">
+        {/* The TechBlock cards below are h3s; this keeps the outline from
+            skipping a level and names the section for crawlers. */}
+        <h2 className="sr-only">Technology and role</h2>
+        <div className="grid gap-6 md:grid-cols-2">
         <Reveal>
           <TechBlock
             name="Technology"
@@ -148,6 +193,7 @@ export default function AmazonPage() {
             ]}
           />
         </Reveal>
+        </div>
       </section>
 
       <ProjectNav

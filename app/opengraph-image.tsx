@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Raymond Vandenberg — Full-stack & AI Engineer";
+export const alt = "Raymond Vandenberg — Full Stack & AI/ML Platform Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -28,7 +28,7 @@ export default function OpengraphImage() {
             opacity: 0.85,
           }}
         >
-          FULL-STACK · AI ENGINEER · EX-AMAZON
+          FULL STACK · AI/ML PLATFORMS · EX-AMAZON
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -36,7 +36,7 @@ export default function OpengraphImage() {
             Raymond Vandenberg
           </div>
           <div style={{ display: "flex", fontSize: 34, opacity: 0.9, marginTop: 24 }}>
-            Building scalable, AI-powered web and mobile products.
+            Full stack engineer — web, mobile, and AI/ML platforms.
           </div>
         </div>
 

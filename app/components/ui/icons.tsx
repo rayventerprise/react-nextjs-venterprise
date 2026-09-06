@@ -101,6 +101,15 @@ export function DatabaseIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function SparkleIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <path d="M12 3l1.9 5.35a3 3 0 0 0 1.75 1.8L21 12l-5.35 1.9a3 3 0 0 0-1.8 1.75L12 21l-1.9-5.35a3 3 0 0 0-1.75-1.8L3 12l5.35-1.9a3 3 0 0 0 1.8-1.75L12 3z" />
+      <path d="M19 3v3M20.5 4.5h-3M5 17v2M6 18H4" />
+    </svg>
+  );
+}
+
 export function CloudIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>

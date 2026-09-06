@@ -7,10 +7,34 @@ import { ProjectMeta } from "@/app/components/project/ProjectMeta";
 import { DotPattern } from "@/app/components/ui/DotPattern";
 import { LightboxProvider, LightboxTrigger } from "@/app/components/ui/Lightbox";
 import { HardDrivesIcon, UsersIcon, DevicesIcon } from "@/app/components/ui/icons";
+import { JsonLd } from "@/app/components/seo/JsonLd";
+import { graph, pageSchema, projectSchema } from "@/lib/structured-data";
+
+const description =
+  "A branded online ordering platform for restaurants, built from the ground up and scaled to 500K+ users and millions of orders across iOS, Android, and web.";
+
+const stack = [
+  "Laravel",
+  "PHP",
+  "Python",
+  "React",
+  "Next.js",
+  "Node.js",
+  "Ionic",
+  "Capacitor",
+  "MySQL",
+  "Redis",
+];
 
 export const metadata: Metadata = {
-  title: "Pizzamico",
-  description: "A branded online ordering platform for restaurants.",
+  title: "Pizzamico — Restaurant Ordering Platform",
+  description,
+  alternates: { canonical: "/pizzamico" },
+  openGraph: {
+    title: "Pizzamico — Restaurant Ordering Platform",
+    description,
+    url: "/pizzamico",
+  },
 };
 
 const screens = [
@@ -42,6 +66,23 @@ export default function PizzamicoPage() {
   return (
     <LightboxProvider images={gallery}>
     <article className="content-container py-16">
+      <JsonLd
+        data={graph(
+          pageSchema({
+            path: "/pizzamico",
+            name: "Pizzamico — Restaurant Ordering Platform",
+            description,
+          }),
+          projectSchema({
+            path: "/pizzamico",
+            name: "Pizzamico — Restaurant Ordering Platform",
+            description,
+            stack,
+            dates: "2017-01/2024-02",
+            image: "/images/projects/pizzamico/iphone-menu.png",
+          })
+        )}
+      />
       {/* Meta eyebrow (outside the band) */}
       <Reveal className="mb-6">
         <ProjectMeta items={["Pizzamico", "Senior Software Engineer", "Jan 2017 – Feb 2024", "Remote"]} />
@@ -95,6 +136,7 @@ export default function PizzamicoPage() {
 
       {/* Screen gallery: 3D fan of devices on a spotlit stage */}
       <section className="relative my-16 overflow-hidden rounded-3xl bg-neutral-900 px-6 py-20">
+        <h2 className="sr-only">App screens</h2>
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -135,7 +177,11 @@ export default function PizzamicoPage() {
       </section>
 
       {/* Tech / platforms / roles */}
-      <section className="grid gap-6 pt-12 md:grid-cols-3">
+      <section className="pt-12">
+        {/* The TechBlock cards below are h3s; this keeps the outline from
+            skipping a level and names the section for crawlers. */}
+        <h2 className="sr-only">Technology, platforms, and role</h2>
+        <div className="grid gap-6 md:grid-cols-3">
         <Reveal>
           <TechBlock
             name="Technology"
@@ -157,6 +203,7 @@ export default function PizzamicoPage() {
             items={["Full Stack Developer", "Team Lead · led 3 engineers"]}
           />
         </Reveal>
+        </div>
       </section>
 
       <p className="py-10 text-center text-sm opacity-60">

@@ -6,6 +6,7 @@ import {
   DevicesIcon,
   DatabaseIcon,
   CloudIcon,
+  SparkleIcon,
 } from "@/app/components/ui/icons";
 
 interface Skill {
@@ -51,6 +52,7 @@ const categories: Category[] = [
     skills: [
       { label: "Laravel", years: 9 },
       { label: "Node", years: 8 },
+      { label: "Python", years: 6 },
       { label: "GraphQL", years: 5 },
       { label: "Elastic Search", years: 5 },
       { label: "Ruby on Rails", years: 2, level: "Proficient" },
@@ -67,6 +69,34 @@ const categories: Category[] = [
       { label: "Angular", years: 3 },
       { label: "Vue.js", years: 7 },
       { label: "TailwindCSS", years: 5 },
+    ],
+  },
+  {
+    name: "AI & ML",
+    icon: <SparkleIcon className="h-6 w-6" />,
+    skills: [
+      {
+        label: "AI/ML Platform Engineering",
+        years: 2,
+        subLabel: "On-demand GPU/CPU compute for ML workloads",
+        level: "Proficient",
+      },
+      {
+        label: "LLM APIs & Integration",
+        years: 2,
+        subLabel: "OpenAI, Anthropic, embeddings",
+      },
+      {
+        label: "AI-Assisted Development",
+        years: 3,
+        subLabel: "Agentic coding tools in daily production work",
+        level: "Proficient",
+      },
+      {
+        label: "Notebook & Analysis Workflows",
+        years: 2,
+        subLabel: "Jupyter, Spark, pandas",
+      },
     ],
   },
   {
