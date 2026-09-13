@@ -14,7 +14,7 @@ export const siteConfig = {
   role: "Full Stack Engineer",
   roleLong: "Full Stack & AI/ML Platform Engineer",
   tagline:
-    "Full stack engineer building scalable web and mobile products — and, at Amazon, the platform behind large-scale AI/ML workloads.",
+    "Full stack engineer building scalable web and mobile products, and at Amazon, the platform behind large-scale AI/ML workloads.",
   description:
     "Ray Vandenberg is a senior full stack engineer in Austin, TX with 10+ years across startups and enterprise. Ex-Amazon, where he built the internal platform powering large-scale AI/ML workloads. Works in TypeScript, React, Next.js, Node, Laravel, Rails, Python, AWS, and Kubernetes.",
 };
@@ -71,7 +71,7 @@ export const roles: Role[] = [
     dates: "Feb 2024 – Oct 2025",
     location: "Austin, TX",
     description:
-      "Built the internal workspace platform that let Amazon economists provision customizable compute environments (GPU/CPU configurations, attached data sources) on demand and run large-scale AI/ML workloads and experimentation — with no infrastructure or credentials to manage. Led the front end and contributed to the API and infrastructure (Java, Python, React, AWS CDK, Lambda, EKS).",
+      "Built the internal workspace platform that let Amazon economists provision customizable compute environments (GPU/CPU configurations, attached data sources) on demand and run large-scale AI/ML workloads and experimentation, with no infrastructure or credentials to manage. Led the front end and contributed to the API and infrastructure (Java, Python, React, AWS CDK, Lambda, EKS).",
   },
   {
     company: "Pizzamico",

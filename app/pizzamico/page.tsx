@@ -27,11 +27,11 @@ const stack = [
 ];
 
 export const metadata: Metadata = {
-  title: "Pizzamico — Restaurant Ordering Platform",
+  title: "Pizzamico | Restaurant Ordering Platform",
   description,
   alternates: { canonical: "/pizzamico" },
   openGraph: {
-    title: "Pizzamico — Restaurant Ordering Platform",
+    title: "Pizzamico | Restaurant Ordering Platform",
     description,
     url: "/pizzamico",
   },
@@ -70,12 +70,12 @@ export default function PizzamicoPage() {
         data={graph(
           pageSchema({
             path: "/pizzamico",
-            name: "Pizzamico — Restaurant Ordering Platform",
+            name: "Pizzamico | Restaurant Ordering Platform",
             description,
           }),
           projectSchema({
             path: "/pizzamico",
-            name: "Pizzamico — Restaurant Ordering Platform",
+            name: "Pizzamico | Restaurant Ordering Platform",
             description,
             stack,
             dates: "2017-01/2024-02",

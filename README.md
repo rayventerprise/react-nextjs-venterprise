@@ -1,4 +1,4 @@
-# Raymond Vandenberg — Portfolio
+# Raymond Vandenberg | Portfolio
 
 A modern, responsive portfolio, built with **Next.js 14, TypeScript, React, and Tailwind CSS**. Live at **[venterprise.io](https://venterprise.io)**.
 
@@ -17,7 +17,7 @@ A modern, responsive portfolio, built with **Next.js 14, TypeScript, React, and 
 - Animated **canvas hero background** (flow field) and a scroll-linked left "trace"
 - **Scroll-reveal** animations and a scroll-velocity "float" on the project cards
 - Project **case-study pages** (Amazon, Pizzamico) with device-framed screenshots
-- **Gallery lightbox** — click any project image to expand, with keyboard/arrow navigation
+- **Gallery lightbox**: click any project image to expand, with keyboard/arrow navigation
 - **Contact modal** wired to [Web3Forms](https://web3forms.com)
 - Centralized site config in [`lib/site.ts`](lib/site.ts)
 

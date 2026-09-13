@@ -67,7 +67,7 @@ export function websiteSchema() {
     "@type": "WebSite",
     "@id": WEBSITE_ID,
     url: siteConfig.url,
-    name: `${siteConfig.name} — ${siteConfig.roleLong}`,
+    name: `${siteConfig.name} | ${siteConfig.roleLong}`,
     description: siteConfig.description,
     inLanguage: "en-US",
     publisher: { "@id": PERSON_ID },

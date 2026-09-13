@@ -53,10 +53,10 @@ ${heading("SKILLS")}
 ${wrap(expertise.join(" · "))}
 
 ${heading("SELECTED PROJECTS")}
-Amazon — AI/ML workspace compute platform (${siteConfig.url}/amazon)
+Amazon · AI/ML workspace compute platform (${siteConfig.url}/amazon)
 ${wrap("Internal platform for provisioning customizable GPU/CPU compute environments on demand, powering large-scale AI/ML workloads and experimentation for Amazon economists. Java, Python, React, AWS CDK, Lambda, Kubernetes/EKS.")}
 
-Pizzamico — restaurant ordering platform (${siteConfig.url}/pizzamico)
+Pizzamico · restaurant ordering platform (${siteConfig.url}/pizzamico)
 ${wrap("Branded online ordering platform built from the ground up; scaled to 500K+ users and millions of orders across iOS, Android, and web. Laravel, Python, React, Next.js, Ionic, Node.js.")}
 
 ${heading("LINKS")}

@@ -11,7 +11,7 @@ const description =
   "About Ray Vandenberg: a senior full stack engineer with 10+ years across startups and enterprise, spanning web, mobile, infrastructure, and the AI/ML compute platform he built at Amazon.";
 
 export const metadata: Metadata = {
-  title: "About — Full Stack & AI/ML Platform Engineer",
+  title: "About | Full Stack & AI/ML Platform Engineer",
   description,
   alternates: { canonical: "/about" },
   openGraph: { title: "About Ray Vandenberg", description, url: "/about" },

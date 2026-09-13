@@ -24,7 +24,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} — ${siteConfig.roleLong}`,
+    default: `${siteConfig.name} | ${siteConfig.roleLong}`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   keywords: expertise,
   alternates: { canonical: "/" },
   openGraph: {
-    title: `${siteConfig.name} — ${siteConfig.roleLong}`,
+    title: `${siteConfig.name} | ${siteConfig.roleLong}`,
     description: siteConfig.tagline,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — ${siteConfig.roleLong}`,
+    title: `${siteConfig.name} | ${siteConfig.roleLong}`,
     description: siteConfig.tagline,
   },
   robots: {

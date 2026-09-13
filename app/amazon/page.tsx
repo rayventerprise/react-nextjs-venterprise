@@ -28,11 +28,11 @@ const stack = [
 ];
 
 export const metadata: Metadata = {
-  title: "Amazon — AI/ML Workspace Compute Platform",
+  title: "Amazon | AI/ML Workspace Compute Platform",
   description,
   alternates: { canonical: "/amazon" },
   openGraph: {
-    title: "Amazon — AI/ML Workspace Compute Platform",
+    title: "Amazon | AI/ML Workspace Compute Platform",
     description,
     url: "/amazon",
   },
@@ -57,12 +57,12 @@ export default function AmazonPage() {
         data={graph(
           pageSchema({
             path: "/amazon",
-            name: "Amazon — AI/ML Workspace Compute Platform",
+            name: "Amazon | AI/ML Workspace Compute Platform",
             description,
           }),
           projectSchema({
             path: "/amazon",
-            name: "Amazon Economist Workspace — AI/ML Compute Platform",
+            name: "Amazon Economist Workspace | AI/ML Compute Platform",
             description,
             stack,
             dates: "2024-02/2025-10",
