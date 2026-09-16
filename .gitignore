@@ -2,6 +2,7 @@
 /.next
 /out
 /build
+/.claude
 .DS_Store
 *.pem
 npm-debug.log*

@@ -46,7 +46,7 @@ export function NavBar() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="group relative block h-5 overflow-hidden font-mono text-sm uppercase tracking-wide no-underline"
+                  className="group relative block h-5 overflow-hidden font-sans text-sm font-medium uppercase tracking-wide no-underline"
                 >
                   <span className="flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-5">
                     <span className="flex h-5 items-center">{l.label}</span>
