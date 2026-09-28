@@ -20,7 +20,7 @@ export function Hero() {
       <div className="content-container relative flex flex-col items-center py-28 text-center md:py-36">
         <div className="mb-8 flex animate-fade-up items-center gap-4">
           <span className="header-font text-lg text-primary">10+ Years</span>
-          <span className="h-4 w-px bg-[rgba(var(--border))]" aria-hidden="true" />
+          <span className="h-5 w-0.5 rounded-full bg-[rgba(var(--foreground))] opacity-25" aria-hidden="true" />
           <span className="text-xs font-medium uppercase tracking-[0.3em] opacity-60">
             Startups to Enterprise
           </span>
