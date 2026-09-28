@@ -18,8 +18,6 @@ export function Hero() {
       />
 
       <div className="content-container relative flex flex-col items-center py-28 text-center md:py-36">
-        {/* Editorial kicker line instead of a badge — typographic hierarchy
-            (display numeral + letterspaced label) rather than chip chrome. */}
         <div className="mb-8 flex animate-fade-up items-center gap-4">
           <span className="header-font text-lg text-primary">10+ Years</span>
           <span className="h-4 w-px bg-[rgba(var(--border))]" aria-hidden="true" />
