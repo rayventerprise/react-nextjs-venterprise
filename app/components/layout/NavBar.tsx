@@ -4,11 +4,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/app/components/ui/ThemeToggle";
 import { SocialLinks } from "@/app/components/ui/SocialLinks";
+import { useVisitBeacon } from "@/app/hooks/useVisitBeacon";
 import { navLinks } from "@/lib/site";
 
 export function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  useVisitBeacon();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);

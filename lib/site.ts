@@ -1,6 +1,11 @@
 import type { ComponentType, SVGProps } from "react";
 import { GithubIcon, MediumIcon, LinkedInIcon } from "@/app/components/ui/icons";
 
+// Web3Forms access key carried over from the original venterprise.io contact form.
+// Public by design (it ships to the browser); restrict it to this domain in the
+// Web3Forms dashboard.
+export const WEB3FORMS_ACCESS_KEY = "0e2ced6d-f1fb-4dcc-a6ee-93614f84cc99";
+
 // Single source of truth for site-wide identity and links.
 export const siteConfig = {
   name: "Raymond Vandenberg",

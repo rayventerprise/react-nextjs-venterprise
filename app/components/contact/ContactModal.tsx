@@ -3,12 +3,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ArrowIcon } from "@/app/components/ui/icons";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, WEB3FORMS_ACCESS_KEY } from "@/lib/site";
 
 type Status = "idle" | "sending" | "sent" | "error";
-
-// Web3Forms access key carried over from the original venterprise.io contact form.
-const ACCESS_KEY = "0e2ced6d-f1fb-4dcc-a6ee-93614f84cc99";
 
 export function ContactModal({ className = "" }: { className?: string }) {
   const [open, setOpen] = useState(false);
@@ -79,7 +76,7 @@ export function ContactModal({ className = "" }: { className?: string }) {
     setMessage("");
     try {
       const formData = new FormData(e.currentTarget);
-      formData.append("access_key", ACCESS_KEY);
+      formData.append("access_key", WEB3FORMS_ACCESS_KEY);
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
